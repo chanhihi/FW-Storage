@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0057)http://hp.vector.co.jp/authors/VA013241/font/bdf2bmp.html -->
+<HTML><HEAD><TITLE>bdf2bmp</TITLE>
+<META http-equiv=content-type content="text/html; charset=euc-jp">
+<META content="MSHTML 6.00.2900.2963" name=GENERATOR></HEAD>
+<BODY text=#000000 vLink=#660099 link=#0000cc bgColor=#efefef>
+<TABLE width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD align=left><A 
+      href="http://hp.vector.co.jp/authors/VA013241/index.html">HOME</A> &gt; 
+      bdf2bmp </TD>
+    <TD align=right>Time-stamp: "Feb 03 2002" </TD></TR></TBODY></TABLE>
+<H1>bdf2bmp</H1>BDFフォントの字体一覧を作るソフト。 
+<P>BDFフォントに含まれている字形を、BMP画像ファイルに出力します。<BR>たとえば、courR18.bdf 
+というBDFフォントから、このような画像ファイル 
+<UL><IMG height=170 alt=courR18.bmp src="bdf2bmp.files/bdf2bmp_00.gif" 
+  width=450> </UL>が得られます。<BR>読みかたは、ビーディーエフ・トゥ・ビーエムピー。 
+<HR>
+courR18.bdf 等のBDFフォントファイルは、X.orgの <A 
+href="ftp://sunsite.sut.ac.jp/pub/archives/X11/R6.4/xc/fonts/bdf/75dpi/">ftpサーバ</A>からダウンロードすることができます。<BR>日本語BDFフォントは、<A 
+href="http://openlab.ring.gr.jp/efont/">/efont/</A> の japanese-bdf-collection 
+のページやリンクのページからたどれば入手できます。あと、<A 
+href="ftp://ftp.m17n.org/pub/mule/">ftp://ftp.m17n.org/pub/mule/</A> 
+には、intlfonts (international fontsの略) という多言語のもあり。 
+<HR>
+
+<H2>設計思想</H2>このソフトは、文字コードに関係なく使えます。日本語BDFファイルも OK。 
+<P><A href="http://openlab.ring.gr.jp/efont/">東雲(しののめ)フォント</A>パッケージには、bdf2bit 
+というツールが含まれています。わたしのこの bdf2bmp というツールもそれと設計思想は同じです。 
+<P>「BDFフォントファイルの中で、ビットマップデータの部分だけは変換して出力し、そのほかの部分には手をつけない」という考えで作ってあります。bdf2bit 
+の場合は、ビットマップデータを 2値ビットマップふうの文字で出力するわけですが、bdf2bmpの場合は、別ファイルに 
+BMP画像として出力する、というだけの違いです。 
+<HR>
+
+<H2>ダウンロード</H2>Linux/Windows共用のソースと、Window用のバイナリがひとつのファイルに入っています。(ソースは ANSI 
+Cで書かれているので、それ以外のプラットフォームでもコンパイルたぶん可)<BR><A 
+href="http://www.vector.co.jp/soft/win95/writing/se174279.html">http://www.vector.co.jp/soft/win95/writing/se174279.html</A> 
+
+<P>更新履歴<BR>ver0.6 (2001/1/10) ベースラインも色分けして表示するようにした<BR>ver0.5 (2000/12/30) 
+文字ごとの幅を色分けして表示できるようにした<BR>ver0.1 (2000/12/17) 
+<HR>
+
+<H2>使いかた</H2>
+<UL><TT>$ bdf2bmp [option..] inputBDF outputBMP</TT> </UL>具体例 
+<UL><TT>courR18.bdf</TT> という BDFファイルに含まれるすべての字体を、 <TT>courR18.bmp</TT> 
+  というファイルに出力する 
+  <TABLE cellPadding=0 border=0>
+    <TBODY>
+    <TR>
+      <TD bgColor=black><TT><FONT color=white>$ bdf2bmp courR18.bdf 
+        courR18.bmp </FONT></TT></TR></TBODY></TABLE>
+  <P>文字ごとの幅、ベースラインも表示する 
+  <TABLE cellPadding=0 border=0>
+    <TBODY>
+    <TR>
+      <TD bgColor=black><TT><FONT color=white>$ bdf2bmp -w timI18.bdf t.bmp 
+        </FONT></TT></TR></TBODY></TABLE></P></UL>
+<HR>
+<A name=2>
+<H2>説明</H2><!--
+なぜ BMP画像形式にしたか?<br>
+プログラミングがかんたん、資料がある、汎用性がある(WindowsでもLinuxでもMacでも扱える)、などが理由。PNG画像形式は zlibを使わなくてはならず、Borland C++ Compiler 5.5.1 for Windowsでうまく扱えなかった。
+<a name="05">
+BMP画像フォーマットは、Cマガジン1999/10月号の解説を参考にしました。
+-->
+<H3>文字幅を表示した画像について</H3>
+<P>文字の幅を色であらわしたサンプルです。bdf2bmpに -wオプションを指定して生成しました。<A 
+href="http://hp.vector.co.jp/authors/VA013241/font/bdf2bmp_01.gif">timI18.bdf</A> 
+<SMALL>(この画像は version 0.5 
+のものです。2倍拡大)</SMALL><BR>この図の示すところを、BDFファイルの中身と対照して説明します。 
+<P>紫色の枠のなかに箱がならんでいます。この箱の幅・高さはどの文字も同じになっています。この数値は BDFファイル timI18.bdf の冒頭の 
+<CODE>FONTBOUNDINGBOX 21 22 -2 -5</CODE> という指定によって決まります。箱の幅:21 高さ:22 となります。 <!--
+まず、文字仕切り(紫の部分)の中の箱の大きさはどの文字も一定です。これは、FONTBOUNDINGBOX の幅と高さの数値が、箱の幅、高さになっています。timI18.bdf を見ると、
+「FONTBOUNDINGBOX 21 22 -2 -5」とあるので、箱の幅: 21, 高さ: 22 です。
+-->timI18.bdf 
+の「 f 」の文字で見てみましょう。<BR><IMG height=351 alt=f src="bdf2bmp.files/bdf2bmp_03.gif" 
+width=335> 
+<P>この箱の中は、まずグレイと白の部分を先に描写して、そのあとで 
+文字の白黒部分が描写するように、このソフトではなっています。最初に、(1)を描写したあとで、上書きする形で、(2)を書き込みます。<BR><IMG 
+height=363 alt="font bounding box and glyph 'f'" 
+src="bdf2bmp.files/bdf2bmp_04.gif" width=571><BR>(2)を書き込むとこうなります。 <IMG 
+height=330 alt="'f' are located" src="bdf2bmp.files/bdf2bmp_05.gif" 
+width=321><BR>
+<P>(1)の箱の グレイと白の意味を説明します。フォントのバウンディングボックスの原点は、「FONTBOUNDINGBOX 21 22 -2 
+-5」で示されるオフセット (-2, -5) から計算されます。 
+<BLOCKQUOTE>オフセット offset という単語は、「ある点からどれだけ離れているか」「ある点からの距離」といった意味があります。 
+</BLOCKQUOTE>この原点より左側はグレイにしてあります。<BR><IMG height=341 
+alt="origin point of font bounding box" src="bdf2bmp.files/bdf2bmp_06.gif" 
+width=352><BR>一方、f の文字の「DWIDTH 5 0」という記述から、この文字の原点から次の文字原点までの距離が 5 
+ピクセルと分かります。次の文字の原点とその右側も、グレイにしてあります。DWIDTH のあとの 2つめの数字は、通常いつも 0 になります。 
+<P>次に、(2)の文字について説明します。「BBX 9 17 -1 
+-4」と記述してあるので、このグリフ単独のバウンディングボックス(フォントのバウンディングボックスとは別ものです)の大きさは、幅: 9 高さ: 17 です。 <PRE class=program><SMALL>
+STARTCHAR f
+ENCODING 102
+SWIDTH 278 0
+DWIDTH 5 0
+BBX 9 17 -1 -4
+BITMAP
+0700	-----###--------
+0D80	----##-##-------
+0C00	----##----------
+1800	---##-----------
+1800	---##-----------
+7E00	-######---------
+1800	---##-----------
+1800	---##-----------
+1800	---##-----------
+1000	---#------------
+3000	--##------------
+3000	--##------------
+3000	--##------------
+2000	--#-------------
+2000	--#-------------
+E000	###-------------
+C000	##--------------
+ENDCHAR
+</SMALL></PRE>(注: 16進数のあとの 「-」(2進数の 0)と「#」(2進数の 1)は筆者が勝手に付け加えたものです) 
+<P>ビットマップデータ上は水平方向に16文字ぶんの 1 と 0 が並んでいますが、 グリフ単独のバウンディングボックスの幅は 
+9なので、このビットマップデータの左側 9文字ぶんの 1 と 0 だけが使われます。残りの右側 
+7文字は、バイト境界にあわせるだけのための詰めもの(パディング)です。<BR><IMG height=287 
+alt="glyph bounding box and 'f'" src="bdf2bmp.files/bdf2bmp_07.gif" width=176> 
+<P>このビットマップデータをどこに配置するかは、「BBX 9 17 -1 -4」から得られる、このグリフ単独のオフセット (-1, -4) 
+で決まります。<BR><IMG height=349 alt="f are located" 
+src="bdf2bmp.files/bdf2bmp_08.gif" width=366> 
+<P>bdf2bmp 0.5.xで -wオプションをつけたときのBMP画像によってわかることは、とりあえずこれで全部です。 <A name=06>
+<H3>文字幅を表示した画像について その2</H3>
+<P>version0.6で -wオプションの動作を少し変更しました。ベースラインより上か下かで、グレイを色分けするようにしました。サンプル <A 
+href="http://hp.vector.co.jp/authors/VA013241/font/bdf2bmp_02.gif">timI18.bdf</A> 
+( 微妙な色使いなんで見分けにくいかもしれません。ソースコードの 35行めくらいからを変更すれば、生成されるBMP画像の色を変えることができます ) 
+<P>色分けによる利点は、原点の位置がわかることです。このベースラインは何かというと、フォントのバウンディングボックスの y=0 
+の直線です。つまりこの直線は、各グリフごとの原点 (0,0) を通っています。 
+<P>縦のグレイ境界線と横のグレイ境界線の交わるところが2つありますね。左側の交点が 
+現在のグリフの原点。右側のは、次のグリフの原点になります。「e」の文字で見てみましょう。<BR><IMG height=297 alt=e 
+src="bdf2bmp.files/bdf2bmp_09.gif" width=286> 
+<P>ちなみに、「e」のデータはこうなってます。 <PRE class=program><SMALL>
+STARTCHAR e
+ENCODING 101
+SWIDTH 444 0
+DWIDTH 8 0
+BBX 7 8 1 0
+BITMAP
+1C	---###--
+66	-##--##-
+46	-#---##-
+CC	##--##--
+F0	####----
+C2	##----#-
+E4	###--#--
+78	-####---
+ENDCHAR
+</SMALL></PRE>
+<P>なぜ原点の位置が重要なんでしょうか。 
+<P>日本語のグリフの並べかたは、基本的に 
+矩形を隣あわせに並べていく、という手法でおこなわれています。たとえて言えば原稿用紙です。つまり、その矩形の箱1つ1つは重なりません。 
+<P>それに対し、アルファベットのグリフは、ベースライン上に原点を置き、原点と原点との距離にしたがって、アルファベットを並べていく、というものです。かんたんにいえば、点とその距離にしたがって並べていくわけです。 
+
+<P>ですから、アルファベットでも矩形の箱(バウンディングボックス)はありますが、それは重なることがありえます。たとえば、「 
+f」の文字を見ると、<BR><IMG height=297 alt=f src="bdf2bmp.files/bdf2bmp_10.gif" 
+width=285><BR>現在の文字「 f」の原点より左側の領域にはみだしてます。さらに、次の文字の原点より右側にも はみだしてます。 
+<P>referという単語を考えてみましょう。e の「次のグリフの原点」が、f の原点と重なります。f の「次のグリフの原点」は、その隣の e 
+の原点と重なるわけです。図にすると、<BR><IMG height=327 alt=e,f,e 
+src="bdf2bmp.files/bdf2bmp_11.gif" width=794><BR>この線でつないだ2つの点は 
+それぞれ重なるわけだから、<BR><IMG height=326 alt="e,f,e are put side by side" 
+src="bdf2bmp.files/bdf2bmp_12.gif" width=519><BR>こうなるはずです。 
+<!--
+フォントの
+-->バウンディングボックス <!--
+(青い線)
+-->が重なってるのがわかるでしょうか。 
+<P>いくらなんでもこれは接近しすぎじゃないか？と思われるかもしれませんが、このフォントは斜体 (Italic) 
+なのでこんなにバウンディングボックスが重なっているんです。 
+<P>Mozilla 0.9.7 + RedHatLinux7.2 で <A 
+href="http://hp.vector.co.jp/authors/VA013241/font/bdf2bmp_test.html">簡単なHTML</A> 
+を書いて Times-Italic を表示してみました。<BR><IMG height=253 
+alt="mozilla browser displays 'refer'" src="bdf2bmp.files/bdf2bmp_13.gif" 
+width=259><BR>拡大すると、上の例と一致していることがわかります。<BR><IMG height=114 
+alt="large size 'refer'" src="bdf2bmp.files/bdf2bmp_14.gif" width=240><BR>
+<P>アルファベットを並べるには、各文字の「原点」と「次の原点までの距離」という2つのパラメータが使用されます。そのため、bdf2bmp 
+version0.6では、その2つのパラメータを図示するようにしました。 
+<P><I>timI18.bdf:<BR>Copyright 1984-1989, 1994 Adobe Systems 
+Incorporated.<BR>Copyright 1988, 1994 Digital Equipment Corporation. </I>
+<HR>
+itouh<BR></BODY></HTML>

@@ -1,0 +1,32 @@
+Unicode Font Viewer for Windows 9x and Windows NT:
+
+This small tool shows all true type fonts on a Windows system and allows to browse through all
+codepoints (characters). See whether your fonts contain chinese, arabic or hebrew characters.
+Get a short description of the selected character (where specified by the Unicode consortium,
+see also www.unicode.org) and compose a unicode string which can be copied to the clipboard
+and used in other applications. This way you can use the viewer as simple IME (input method
+editor) replacement. The viewer does not depend on any language specific version of Windows
+nor does it need any additonal software (Language support etc.).
+
+This software is freeware. No restrictions apply, but the usual disclaimer about liability etc.
+
+Have fun!
+
+Written by Dipl. Ing. Mike Lischke (public@lischke-online.de)
+
+PS: Download Unicode fonts from ftp.ifcss.org/pub/software/fonts/unicode/ms-win:
+
+original.exe	Cyberbit font for Western versions of Windows95/NT
+cbchnsmp.exe	Cyberbit font for Simplified Chinese Windows95/NT
+cbchntrd.exe	Cyberbit font for Traditional Chinese Windows95/NT
+cbkanji.exe	Cyberbit font for Japanese Windows95/NT
+cbkorean.exe	Cyberbit font for Korean Windows95/NT
+clibff51.exe	TwinBridge Unicode TTF Traditional font
+clibfj1.exe	TwinBridge Unicode TTF Simplified font
+hkmingli.exe	Hong Kong EUDC TTF for pan-Chinese NT4.0
+ie3lpkcn.exe	Song and Hei Unicode TTF with GB support for Windows95/NT
+ie3lpktw.exe	Mingli Unicode TTF with Big5 support for Windows95/NT
+uwcxmf.exe	Unicode TTF with Big5 support for Unionway AsianSuite97
+uwjmg3.exe	Unicode TTF with SJIS support for Unionway AsianSuite97
+uwkmjf.exe	Unicode TTF with KSC support for Unionway AsianSuite97
+uwpstj.exe	Unicode TTF with GB support for Unionway AsianSuite97

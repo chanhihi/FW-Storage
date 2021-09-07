@@ -1,0 +1,2376 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0052)http://mytheme.net/zboard/view.php?id=lec_win&no=424 -->
+<!--
+ZeroBoard에 대한 라이센스 명시입니다.
+
+아래 라이센스에 동의하시는 분만 제로보드를 사용할수 있습니다.
+    
+프로그램명 : Zeroboard
+배포버젼 : 4.1 pl 8 (2006. 3. 15)
+개발자 : zero 
+Homepage : http://zeroboard.com
+
+1. 제로보드의 배포권은 ZEROBOARD.COM에서 허용한 곳에만 있습니다.
+   (허락 맡지 않은 재배포는 허용하지 않습니다.)
+
+2. 제로보드는 저작권을 아래 3번항목에 의해 표기하는 한도내에서
+   개인홈페이지 및 학교나 교회등의 비영리단체, 기업이나 기타 영리단체에서 사용할수 있습니다.
+   (반국가 단체나 불법 싸이트에서의 사용은 금지합니다)
+
+3. 제로보드 사용시 저작권 명시부분을 훼손하면 안됩니다.
+   프로그램 소스, html소스상의 라이센스 및 웹상 출력물 하단에 있는 카피라이트와 링크를 수정하지 마십시요.
+   (저작권 표시는 게시판 배포시 작성된 형식만을 허용합니다. 임의 수정은 금지합니다)
+
+4. 단, 정식 등록버젼은 저작권 표시를 삭제할수 있습니다.
+   정식 등록버젼에 대한 문의는 http://zeroboard.com 에서 문의 방법을 찾아주시기 바랍니다.
+
+5. 링크서비스등의 기본 용도에 맞지 않는 사용은 금지합니다.
+
+6. 제로보드의 사용으로 인한 데이타 손실 및 기타 손해등 어떠한 사고나 문제에 대해서 ZEROBOARD.COM은 절대 책임을 지지 않습니다.
+
+7. 제로보드에 대해 ZEROBOARD.COM은 유지/ 보수의 의무가 없습니다.
+
+8. 제로보드 소스는 개인적으로 사용시 수정하여 사용할수 있지만 수정된 프로그램의 재배포는 금지합니다.
+   (저작권 관련 부분은 수정금지입니다)
+
+9. 제로보드에 쓰인 스킨의 저작권은 스킨 제작자에게 있으며 제작자의 동의하에 수정배포가 가능합니다.
+
+10. 기타 의문사항은 http://zeroboard.com 을 이용해 주시기 바랍니다.
+    (질문등에 대한 내용은 메일로 받지 않습니다)
+
+--><HTML><HEAD><TITLE>테마의 중심, 마이테마쩜넷 2007 Start~</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=ks_c_5601-1987"><LINK 
+title=style href="한국어 글꼴에 ClearType 사용해보기.files/style.css" type=text/css 
+rel=StyleSheet>
+<SCRIPT language=JavaScript>
+	var select_obj;
+	function ZB_layerAction(name,status) { 
+		var obj=document.all[name];
+		var _tmpx,_tmpy, marginx, marginy;
+		_tmpx = event.clientX + parseInt(obj.offsetWidth);
+		_tmpy = event.clientY + parseInt(obj.offsetHeight);
+		_marginx = document.body.clientWidth - _tmpx;
+		_marginy = document.body.clientHeight - _tmpy ;
+		if(_marginx < 0)
+			_tmpx = event.clientX + document.body.scrollLeft + _marginx ;
+		else
+			_tmpx = event.clientX + document.body.scrollLeft ;
+		if(_marginy < 0)
+			_tmpy = event.clientY + document.body.scrollTop + _marginy +20;
+		else
+			_tmpy = event.clientY + document.body.scrollTop ;
+		obj.style.posLeft=_tmpx-13;
+		obj.style.posTop=_tmpy-12;
+		if(status=='visible') {
+			if(select_obj) {
+				select_obj.style.visibility='hidden';
+				select_obj=null;
+			}
+			select_obj=obj;
+		}else{
+			select_obj=null;
+		}
+		obj.style.visibility=status; 
+	}
+
+
+	function print_ZBlayer(name, homepage, mail, member_no, boardID, writer, traceID, traceType, isAdmin, isMember) {
+		var printHeight = 0;
+		var printMain="";
+	
+		if(homepage) {
+			printMain = "<tr onMouseOver=this.style.backgroundColor='#bbbbbb' onMouseOut=this.style.backgroundColor='' onMousedown=window.open('"+homepage+"');><td style=font-family:굴림;font-size:9pt height=18 nowrap>&nbsp;<img src=images/n_homepage.gif border=0 align=absmiddle>&nbsp;&nbsp;홈페이지&nbsp;&nbsp;</td></tr>";
+			printHeight = printHeight + 16;
+		}
+		if(mail) {
+			printMain = printMain +	"<tr onMouseOver=this.style.backgroundColor='#bbbbbb' onMouseOut=this.style.backgroundColor='' onMousedown=window.open('open_window.php?mode=m&str="+mail+"','ZBremote','width=1,height=1,left=1,top=1');><td style=font-family:굴림;font-size:9pt height=18 nowrap>&nbsp;<img src=images/n_mail.gif border=0 align=absmiddle>&nbsp;&nbsp;메일 보내기&nbsp;&nbsp;</td></tr>";
+			printHeight = printHeight + 16;
+		}
+		if(member_no) {
+			if(isMember) {
+				printMain = printMain +	"<tr onMouseOver=this.style.backgroundColor='#bbbbbb' onMouseOut=this.style.backgroundColor='' onMousedown=window.open('view_info.php?member_no="+member_no+"','view_info','width=400,height=510,toolbar=no,scrollbars=yes');><td style=font-family:굴림;font-size:9pt height=18 nowrap>&nbsp;<img src=images/n_memo.gif border=0 align=absmiddle>&nbsp;&nbsp;쪽지 보내기&nbsp;&nbsp;</td></tr>";
+				printHeight = printHeight + 16;
+			}
+			printMain = printMain +	"<tr onMouseOver=this.style.backgroundColor='#bbbbbb' onMouseOut=this.style.backgroundColor='' onMousedown=window.open('view_info2.php?member_no="+member_no+"','view_info','width=400,height=510,toolbar=no,scrollbars=yes');><td style=font-family:굴림;font-size:9pt height=18 nowrap>&nbsp;<img src=images/n_information.gif border=0 align=absmiddle>&nbsp;&nbsp;회원정보 보기&nbsp;&nbsp;</td></tr>";
+			printHeight = printHeight + 16;
+		}
+		if(writer) {
+			printMain = printMain +	"<tr onMouseOver=this.style.backgroundColor='#bbbbbb' onMouseOut=this.style.backgroundColor='' onMousedown=location.href='zboard.php?id="+boardID+"&sn1=on&sn=on&ss=off&sc=off&keyword="+writer+"';><td style=font-family:굴림;font-size:9pt height=18 nowrap>&nbsp;<img src=images/n_search.gif border=0 align=absmiddle>&nbsp;&nbsp;이름으로 검색&nbsp;&nbsp;</td></tr>";
+			printHeight = printHeight + 16;
+		}
+		if(isAdmin) {
+			if(member_no) {
+				printMain = printMain +	"<tr onMouseOver=this.style.backgroundColor='#bbbbbb' onMouseOut=this.style.backgroundColor='' onMousedown=window.open('open_window.php?mode=i&str="+member_no+"','ZBremote','width=1,height=1,left=1,top=1');><td style=font-family:굴림;font-size:9pt height=18 nowrap>&nbsp;<img src=images/n_modify.gif border=0 align=absmiddle>&nbsp;&nbsp;<font color=darkred>회원정보 변경&nbsp;&nbsp;</td></tr>";
+				printHeight = printHeight + 16;
+			}
+			printMain = printMain +	"<tr onMouseOver=this.style.backgroundColor='#bbbbbb' onMouseOut=this.style.backgroundColor='' onMousedown=window.open('open_window.php?mode="+traceType+"&str="+traceID+"','ZBremote','width=1,height=1,left=1,top=1');><td style=font-family:굴림;font-size:9pt height=18 nowrap>&nbsp;<img src=images/n_relationlist.gif border=0 align=absmiddle>&nbsp;&nbsp;<font color=darkred>관련글 추적</font>&nbsp;&nbsp;</td></tr>";
+			printHeight = printHeight + 16;
+		
+		}
+		var printHeader = "<div id='"+name+"' style='position:absolute; left:10px; top:25px; width:127; height: "+printHeight+"; z-index:1; visibility: hidden' onMousedown=ZB_layerAction('"+name+"','hidden')><table border=0><tr><td colspan=3 onMouseover=ZB_layerAction('"+name+"','hidden') height=3></td></tr><tr><td width=5 onMouseover=ZB_layerAction('"+name+"','hidden') rowspan=2>&nbsp;</td><td height=5></td></tr><tr><td><table style=cursor:hand border='0' cellspacing='1' cellpadding='0' bgcolor='black' width=100% height=100%><tr><td valign=top bgcolor=white><table border=0 cellspacing=0 cellpadding=3 width=100% height=100%>";
+		var printFooter = "</table></td></tr></table></td><td width=5 rowspan=2 onMouseover=ZB_layerAction('"+name+"','hidden')>&nbsp;</td></tr><tr><td colspan=3 height=10 onMouseover=ZB_layerAction('"+name+"','hidden')></td></tr></table></div>";
+	
+		document.writeln(printHeader+printMain+printFooter);
+	}
+</SCRIPT>
+
+<META content="MSHTML 6.00.2900.3132" name=GENERATOR></HEAD>
+<BODY bgColor=white leftMargin=0 topMargin=0 marginheight="0" 
+marginwidth="0"><IFRAME id=hiddenProcessFrame name=hiddenProcessFrame 
+src="about:blank" frameBorder=0 width=0 height=0></IFRAME>
+<META content="teriyam(teriyam@msn.com or teriyam@gmail.com)" name=author>
+<META 
+content="마이테마쩜넷, mytheme.net , 마이테마넷, 윈도우 꾸미기, StyleXP, 스타일xp, 아이콘, 배경화면, 테마, 윈엠프 스킨, vista , 비스타 ,foobar, samurize, 미란다, 테마, 윈도우 테마, 아이콘 패키져, 미디어플레이어, 배경화면, 바탕화면, 스크린샷" 
+name=keywords>
+<META content="테마의 중심, 마이테마쩜넷 2007 start~" name=description><!--[if lt IE 7]>
+<SCRIPT src="한국어 글꼴에 ClearType 사용해보기.files/pngfix.js" defer 
+type=text/javascript></SCRIPT>
+<![endif]-->
+<STYLE type=text/css>BODY {
+	MARGIN: 0px
+}
+.style1 {
+	FONT-SIZE: 12px; COLOR: #e5ccd0; FONT-FAMILY: "맑은 고딕", "verdana", "tahoma", "돋움"
+}
+.style2 {
+	FONT-FAMILY: "맑은 고딕"
+}
+</STYLE>
+
+<SCRIPT src="한국어 글꼴에 ClearType 사용해보기.files/imagetext_js.htm" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT type=text/javascript>
+malgunFont.font = "../v3.0/malgun.ttf"; 
+malgunFont.size = 18; 
+malgunFont.bgColor = "FFFFFF"; 
+malgunFont.txtColor = "66000F"; 
+malgunFont.notColor = "669900"; 
+</SCRIPT>
+
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=bottom align=middle 
+    background="한국어 글꼴에 ClearType 사용해보기.files/n1.gif" height=122>
+      <DIV align=center>
+      <TABLE cellSpacing=0 cellPadding=0 width=940 border=0>
+        <TBODY>
+        <TR>
+          <TD align=left><A href="http://mytheme.net/v3.0/index.php"><IMG 
+            height=56 alt="마이테마쩜넷 로고" 
+            src="한국어 글꼴에 ClearType 사용해보기.files/logo.png" width=313 
+          border=0></A></TD>
+          <TD vAlign=bottom align=right width=540 rowSpan=3>
+            <TABLE id=Table_01 height=43 cellSpacing=0 cellPadding=0 width=465 
+            border=0>
+              <TBODY>
+              <TR>
+                <TD><A href="http://mytheme.net/v3.0/index.php"><IMG height=43 
+                  src="한국어 글꼴에 ClearType 사용해보기.files/top_menu_01.gif" width=60 
+                  border=0></A></TD>
+                <TD width=6></TD>
+                <TD><A href="http://mytheme.net/v3.0/theme.php"><IMG height=43 
+                  src="한국어 글꼴에 ClearType 사용해보기.files/top_menu_03.gif" width=60 
+                  border=0></A></TD>
+                <TD width=6></TD>
+                <TD><A href="http://mytheme.net/v3.0/wallicon.php"><IMG 
+                  height=43 src="한국어 글꼴에 ClearType 사용해보기.files/top_menu_05.gif" 
+                  width=99 border=0></A></TD>
+                <TD width=6></TD>
+                <TD><A href="http://mytheme.net/v3.0/comm.php"><IMG height=43 
+                  src="한국어 글꼴에 ClearType 사용해보기.files/top_menu_07.gif" width=84 
+                  border=0></A></TD>
+                <TD width=6></TD>
+                <TD><A href="http://mytheme.net/v3.0/psd.php"><IMG height=43 
+                  src="한국어 글꼴에 ClearType 사용해보기.files/top_menu_09.gif" width=72 
+                  border=0></A></TD>
+                <TD width=6></TD>
+                <TD><A href="http://mytheme.net/v3.0/info.php"><IMG height=43 
+                  src="한국어 글꼴에 ClearType 사용해보기.files/top_menu_11.gif" width=60 
+                  border=0></A></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD align=left width=400><SPAN class=style1>korean windows 
+            customizing community, powered by nayana</SPAN></TD></TR>
+        <TR>
+          <TD align=left width=400 height=10></TD></TR></TBODY></TABLE></DIV></TD></TR>
+  <TR>
+    <TD height=1></TD></TR>
+  <TR>
+    <TD vAlign=bottom align=middle 
+    background="한국어 글꼴에 ClearType 사용해보기.files/n2.gif" height=77>
+      <DIV align=center>
+      <TABLE cellSpacing=0 cellPadding=0 width=940 border=0>
+        <TBODY>
+        <TR>
+          <TD width=157><IMG height=26 
+            src="한국어 글꼴에 ClearType 사용해보기.files/le_login.png" width=157></TD>
+          <TD width=13></TD>
+          <TD width=770></TD></TR></TBODY></TABLE></DIV></TD></TR>
+  <TR>
+    <TD>
+      <DIV align=center>
+      <TABLE cellSpacing=0 cellPadding=0 width=940 border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top width=170>
+            <TABLE cellSpacing=0 cellPadding=0 width=157 align=left border=0>
+              <TBODY>
+              <TR>
+                <TD width=157><IMG height=9 
+                  src="한국어 글꼴에 ClearType 사용해보기.files/le_login_bl.png" 
+                width=157></TD></TR>
+              <TR>
+                <TD>
+                  <DIV align=left>
+                  <SCRIPT>
+	function zb_login_check_submit() {
+		if(!document.zb_login.user_id.value) {
+			alert("ID를 입력하여 주십시요");
+			document.zb_login.user_id.focus();
+			return false;
+		}
+		if(!document.zb_login.password.value) {
+			alert("Password를 입력하여 주십시요");
+			document.zb_login.password.focus();
+			return false;
+		}  
+		return true;
+	} 
+	
+	function check_autologin() { 
+		if (document.zb_login.auto_login.checked==true) {
+			var check;  
+			check = confirm("자동 로그인 기능을 사용하시겠습니까?\n\n자동 로그인 사용시 다음 접속부터는 로그인을 하실필요가 없습니다.\n\n단, 게임방, 학교등 공공장소에서 이용시 개인정보가 유출될수 있으니 주의해주세요");
+			if(check==false) {document.zb_login.auto_login.checked=false;}
+		}                               
+	}  
+</SCRIPT>
+
+                  <STYLE type=text/css>INPUT.text {
+	BORDER-RIGHT: #f1f1f1 1px solid; PADDING-RIGHT: 0.25em; BORDER-TOP: #f1f1f1 1px solid; PADDING-LEFT: 0.25em; FONT-SIZE: 1em; PADDING-BOTTOM: 0.25em; BORDER-LEFT: #f1f1f1 1px solid; PADDING-TOP: 0.25em; BORDER-BOTTOM: #f1f1f1 1px solid
+}
+</STYLE>
+
+                  <TABLE height=73 cellSpacing=0 cellPadding=0 width=150 
+                  border=0>
+                    <FORM name=zb_login 
+                    onsubmit="return zb_login_check_submit();" 
+                    action=login_check.php method=post><INPUT type=hidden 
+                    value=%2Fzboard%2Fview.php%3Fid%3Dlec_win%26no%3D424 
+                    name=s_url> 
+                    <TBODY>
+                    <TR>
+                      <TD vAlign=center>
+                        <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD colSpan=2 height=15></TD></TR>
+                          <TR>
+                            <TD colSpan=2>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD align=middle>
+                                <TABLE cellSpacing=0 cellPadding=0 width=150 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD vAlign=top align=left height=18><INPUT 
+                                style="BACKGROUND-COLOR: #ffffff" tabIndex=1 
+                                type=input.text size=12 name=user_id></TD>
+                                <TD align=right width=39 rowSpan=2><INPUT 
+                                type=image 
+                                src="한국어 글꼴에 ClearType 사용해보기.files/i_login.gif" 
+                                border=0></TD></TR>
+                                <TR>
+                                <TD vAlign=bottom align=left width=121 
+                                height=18><INPUT 
+                                style="BACKGROUND-COLOR: #ffffff" tabIndex=2 
+                                type=password size=12 name=password> 
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD colSpan=2 height=5></TD></TR>
+                          <TR>
+                            <TD vAlign=center align=middle width=23><INPUT 
+                              onclick=check_autologin() type=checkbox value=1 
+                              name=auto_login></TD>
+                            <TD vAlign=center align=middle width=127><IMG 
+                              height=20 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/login_13.gif" 
+                              width=112></TD></TR>
+                          <TR>
+                            <TD align=middle colSpan=2 height=10>
+                              <TABLE height=5 cellSpacing=0 cellPadding=0 
+                              width=150 border=0>
+                                <TBODY>
+                                <TR>
+                                <TD align=left colSpan=2 height=5></TD></TR>
+                                <TR>
+                                <TD align=left><A 
+                                onclick="window.open('member_join.php?group_no=1','zbMemberJoin','width=560,height=590,toolbars=no,resizable=yes,scrollbars=yes')" 
+                                href="http://mytheme.net/zboard/view.php?id=lec_win&amp;no=424#"><IMG 
+                                src="한국어 글꼴에 ClearType 사용해보기.files/i_join.gif" 
+                                border=0></A></TD>
+                                <TD align=right><A 
+                                onclick='window.open("lostid.php","lost_id","width=400,height=200,toolbars=no,autoscrollbars=no")' 
+                                href="http://mytheme.net/zboard/view.php?id=lec_win&amp;no=424#"><IMG 
+                                src="한국어 글꼴에 ClearType 사용해보기.files/i_help.gif" 
+                                border=0></A></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD colSpan=2 
+                    height=12></TD></TR></TBODY></TABLE></TD></TR><INPUT 
+                    type=hidden value=1 
+                name=group_no></FORM></TBODY></TABLE></DIV></TD></TR>
+              <TR>
+                <TD><IMG height=33 
+                  src="한국어 글꼴에 ClearType 사용해보기.files/le_d_menu.png" 
+              width=157></TD></TR>
+              <TR>
+                <TD></TD></TR>
+              <TR>
+                <TD vAlign=top height=5>
+                  <TABLE cellSpacing=0 cellPadding=0 width=157 border=0>
+                    <TBODY>
+                    <TR>
+                      <TD height=20>
+                        <DIV id=sidebar align=left>
+                        <H1>커뮤니티</H1><BR><BR>
+                        <UL class=sidemenu>
+                          <LI class=first><A 
+                          href="http://mytheme.net/zboard/zboard.php?category=5&amp;id=freeboard">자유게시판</A> 
+                          </LI>
+                          <LI><A 
+                          href="http://mytheme.net/zboard/zboard.php?id=com_screen">스크린샷 
+                          자랑</A> </LI>
+                          <LI><A 
+                          href="http://mytheme.net/zboard/zboard.php?id=osx&amp;&amp;category=3">OS 
+                          X 스크린샷</A> </LI>
+                          <LI><A 
+                          href="http://mytheme.net/zboard/zboard.php?id=com_qna">묻고 
+                          답하기</A> </LI>
+                          <LI><A 
+                          href="http://mytheme.net/zboard/zboard.php?id=com_advice">요청 
+                          및 건의하기</A> </LI>
+                          <LI><A 
+                          href="http://mytheme.net/zboard/zboard.php?category=7&amp;id=lec_win">운영진 
+                          강좌</A> </LI>
+                          <LI><A 
+                          href="http://mytheme.net/zboard/zboard.php?category=5&amp;id=lec_win">회원님들 
+                          강좌</A> </LI>
+                          <LI><A 
+                          href="http://mytheme.net/zboard/zboard.php?category=6&amp;id=lec_win">윈도우 
+                          시스템 팁</A> </LI>
+                          <LI><A 
+                          href="http://mytheme.net/zboard/zboard.php?category=8&amp;id=lec_win">OS 
+                          X 강좌</A> </LI></UL>
+                        <H1>자료실</H1>
+                        <UL class=sidemenu><BR><BR>
+                          <LI class=first><A 
+                          href="http://mytheme.net/zboard/zboard.php?category=4&amp;id=pds_util">테마 
+                          유틸리티</A> </LI>
+                          <LI><A 
+                          href="http://mytheme.net/zboard/zboard.php?category=5&amp;id=pds_util">폰트/브러쉬/템플릿</A> 
+                          </LI>
+                          <LI><A 
+                          href="http://mytheme.net/zboard/zboard.php?category=6&amp;id=pds_util">윈도우 
+                          시작/종료음</A> </LI>
+                          <LI><A 
+                          href="http://mytheme.net/zboard/zboard.php?category=7&amp;id=pds_util">화면보호기</A> 
+                          </LI>
+                          <LI><A 
+                          href="http://mytheme.net/zboard/zboard.php?category=8&amp;id=pds_util">OS 
+                          X Appz</A> </LI>
+                          <LI><A 
+                          href="http://mytheme.net/zboard/zboard.php?id=pds_vip">VIP 
+                          자료실</A> </LI>
+                          <LI><A 
+                          href="http://mytheme.net/zboard/zboard.php?id=pds_admin">운영자 
+                          공간</A> 
+            </LI></UL></DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD>
+          <TD vAlign=top align=right width=770>
+            <TABLE cellSpacing=0 cellPadding=0 width=760 border=0>
+              <TBODY>
+              <TR>
+                <TD>
+                  <DIV align=center>
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD>
+                        <H3>
+                        <SCRIPT type=text/javascript>malgunFont("윈도우 꾸미기 강좌/ 멤버 강좌/ 윈도우 팁");</SCRIPT>
+                        </H3></TD></TR></TBODY></TABLE>
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=#fbfaf7><B>※ 강좌를 최대한 활용해 주세요.</B>추가가 되길 원하는 
+                        강좌가 있다면 요청 및 건의에 작성해 주세요. 
+                        <H5>오래된 강좌나 버전이 틀린 경우가 많으나 자세히 원리만 이해하신다면 쉽게 따라하실 수 
+                        있을꺼에요.</H5></TD>
+                    <TR>
+                      <TD height=5></TD></TR></TBODY></TABLE></DIV>
+              <TR>
+                <TD align=middle>
+                  <SCRIPT type=text/javascript><!--
+google_ad_client = "pub-3679962441317499";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text_image";
+//2007-02-08: mytheme_zboard
+google_ad_channel = "8312212544";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "66000F";
+google_color_text = "000000";
+google_color_url = "D90000";
+//--></SCRIPT>
+
+                  <SCRIPT src="한국어 글꼴에 ClearType 사용해보기.files/show_ads.js" 
+                  type=text/javascript>
+</SCRIPT>
+                </TD>
+              <TR>
+                <TD height=8></TD></TR></TBODY></TABLE>
+            <TABLE style="TABLE-LAYOUT: fixed" height=1 cellSpacing=0 
+            cellPadding=0 width="100%" border=0>
+              <COLGROUP>
+              <COL width="100%"></COL>
+              <TBODY>
+              <TR>
+                <TD><IMG height=1 src="한국어 글꼴에 ClearType 사용해보기.files/t.gif" 
+                  width="98%" border=0 name=zb_get_table_width><BR><IMG height=1 
+                  src="한국어 글꼴에 ClearType 사용해보기.files/t.gif" width=1 border=0 
+                  name=zb_target_resize></TD></TR></TBODY></TABLE>
+            <SCRIPT language=JavaScript type=text/javascript>
+	// 체크박스 전체선택
+	var chk = false;
+	function CheckAll()
+	{
+		var checkboxes = document.getElementsByName('cart');
+		if (!chk) {
+			for (i=0;i<checkboxes.length;i++) {
+				checkboxes[i].checked=true;
+			}
+			chk=true;
+		} else{
+			for (i=0;i<checkboxes.length;i++) 	{
+				checkboxes[i].checked=false;
+			}
+			chk=false;
+		}
+	}
+	
+	function back_top() // 상단으로 부드럽게 이동
+	{
+		x = document.body.scrollLeft;
+		y = document.body.scrollTop;
+		step = 2;
+		
+		while ((x != 0) || (y != 0)) {
+			scroll (x, y);
+			step += (step * step / 200);
+			x -= step;
+			y -= step;
+			if (x < 0) x = 0;
+			if (y < 0) y = 0;
+		}
+		scroll (0, 0);
+	}
+	
+	function back_bottom() // 하단으로 부드럽게 이동
+	{
+		endx = document.body.scrollWidth;
+		endy = document.body.scrollHeight;
+		x = document.body.scrollLeft;
+		y = document.body.scrollTop;
+		step = 2;
+		
+		while ((x != endx) || (y != endy)) {
+			scroll (x, y);
+			step += (step * step / 200);
+			x += step;
+			y += step;
+			if (x > endx) x = endx;
+			if (y > endy) y = endy;
+		}
+		scroll (endx, endy);
+	}
+	
+	document.ondblclick = function () {
+		if (document.body.scrollTop<=((document.body.scrollHeight - document.body.clientHeight)/2))
+		{
+			back_bottom();
+		} else {
+			back_top();
+		}
+	}
+</SCRIPT>
+
+            <SCRIPT language=JavaScript type=text/javascript>
+	// lightbox_plus.js
+	// == written by Takuya Otani <takuya.otani@gmail.com> ===
+	// == Copyright (C) 2006 SimpleBoxes/SerendipityNZ Ltd. ==
+	/*
+	Copyright (C) 2006 Takuya Otani/SimpleBoxes - http://serennz.cool.ne.jp/sb/
+	Copyright (C) 2006 SerendipityNZ - http://serennz.cool.ne.jp/snz/
+	
+	This script is licensed under the Creative Commons Attribution 2.5 License
+	http://creativecommons.org/licenses/by/2.5/
+	
+	basically, do anything you want, just leave my name and link.
+	*/
+	/*
+	Original script : Lightbox JS : Fullsize Image Overlays
+	Copyright (C) 2005 Lokesh Dhakar - http://www.huddletogether.com
+	For more information on this script, visit:
+	http://huddletogether.com/projects/lightbox/
+	*/
+	// ver. 20060131 - fixed a bug to work correctly on Internet Explorer for Windows
+	// ver. 20060128 - implemented functionality of echoic word
+	// ver. 20060120 - implemented functionality of caption and close button
+	// === utilities ===
+	
+	// lightbox_plus 관련 - 스킨에서 처리하기위해 부득이 php 내부에 자스삽입함 20060906 - ganji
+	function addEvent(object, type, handler)
+	{
+		if (object.addEventListener) {
+			object.addEventListener(type, handler, false);
+		} else if (object.attachEvent) {
+			object.attachEvent(['on',type].join(''),handler);
+		} else {
+			object[['on',type].join('')] = handler;
+		}
+	}
+	function WindowSize()
+	{ // window size object
+		this.w = 0;
+		this.h = 0;
+		return this.update();
+	}
+	WindowSize.prototype.update = function()
+	{
+		var d = document;
+		this.w =
+		(window.innerWidth) ? window.innerWidth
+		: (d.documentElement && d.documentElement.clientWidth) ? d.documentElement.clientWidth
+		: d.body.clientWidth;
+		this.h =
+		(window.innerHeight) ? window.innerHeight
+		: (d.documentElement && d.documentElement.clientHeight) ? d.documentElement.clientHeight
+		: d.body.clientHeight;
+		return this;
+	};
+	function PageSize()
+	{ // page size object
+		this.win = new WindowSize();
+		this.w = 0;
+		this.h = 0;
+		return this.update();
+	}
+	PageSize.prototype.update = function()
+	{
+		var d = document;
+		this.w =
+		(window.innerWidth && window.scrollMaxX) ? window.innerWidth + window.scrollMaxX
+		: (d.body.scrollWidth > d.body.offsetWidth) ? d.body.scrollWidth
+		: d.body.offsetWidt;
+		this.h =
+		(window.innerHeight && window.scrollMaxY) ? window.innerHeight + window.scrollMaxY
+		: (d.body.scrollHeight > d.body.offsetHeight) ? d.body.scrollHeight
+		: d.body.offsetHeight;
+		this.win.update();
+		if (this.w < this.win.w) this.w = this.win.w;
+		if (this.h < this.win.h) this.h = this.win.h;
+		return this;
+	};
+	function PagePos()
+	{ // page position object
+		this.x = 0;
+		this.y = 0;
+		return this.update();
+	}
+	PagePos.prototype.update = function()
+	{
+		var d = document;
+		this.x =
+		(window.pageXOffset) ? window.pageXOffset
+		: (d.documentElement && d.documentElement.scrollLeft) ? d.documentElement.scrollLeft
+		: (d.body) ? d.body.scrollLeft
+		: 0;
+		this.y =
+		(window.pageYOffset) ? window.pageYOffset
+		: (d.documentElement && d.documentElement.scrollTop) ? d.documentElement.scrollTop
+		: (d.body) ? d.body.scrollTop
+		: 0;
+		return this;
+	};
+	function UserAgent()
+	{ // user agent information
+		var ua = navigator.userAgent;
+		this.isWinIE = this.isMacIE = false;
+		this.isGecko  = ua.match(/Gecko\//);
+		this.isSafari = ua.match(/AppleWebKit/);
+		this.isOpera  = window.opera;
+		if (document.all && !this.isGecko && !this.isSafari && !this.isOpera) {
+			this.isWinIE = ua.match(/Win/);
+			this.isMacIE = ua.match(/Mac/);
+			this.isNewIE = (ua.match(/MSIE 5\.5/) || ua.match(/MSIE 6\.0/));
+		}
+		return this;
+	}
+	// === lightbox ===
+	function LightBox(option)
+	{
+		var self = this;
+		self._imgs = new Array();
+		self._wrap = null;
+		self._box  = null;
+		self._open = -1;
+		self._page = new PageSize();
+		self._pos  = new PagePos();
+		self._ua   = new UserAgent();
+		self._expandable = false;
+		self._expanded = false;
+		self._expand = option.expandimg;
+		self._shrink = option.shrinkimg;
+		return self._init(option);
+	}
+	LightBox.prototype = {
+		_init : function(option)
+		{
+			var self = this;
+			var d = document;
+			if (!d.getElementsByTagName) return;
+			var links = d.getElementsByTagName("a");
+			for (var i=0;i<links.length;i++) {
+				var anchor = links[i];
+				var num = self._imgs.length;
+				if (!anchor.getAttribute("href")
+				|| anchor.getAttribute("rel") != "lightbox") continue;
+				// initialize item
+				self._imgs[num] = {src:anchor.getAttribute("href"),w:-1,h:-1,title:'',cls:anchor.className};
+				if (anchor.getAttribute("title"))
+				self._imgs[num].title = anchor.getAttribute("title");
+				else if (anchor.firstChild && anchor.firstChild.getAttribute && anchor.firstChild.getAttribute("title"))
+				self._imgs[num].title = anchor.firstChild.getAttribute("title");
+				anchor.onclick = self._genOpener(num); // set closure to onclick event
+			}
+			var body = d.getElementsByTagName("body")[0];
+			self._wrap = self._createWrapOn(body,option.loadingimg);
+			self._box  = self._createBoxOn(body,option);
+			return self;
+		},
+		_genOpener : function(num)
+		{
+			var self = this;
+			return function() { self._show(num); return false; }
+		},
+		_createWrapOn : function(obj,imagePath)
+		{
+			var self = this;
+			if (!obj) return null;
+			// create wrapper object, translucent background
+			var wrap = document.createElement('div');
+			wrap.id = 'overlay';
+			with (wrap.style) {
+				display = 'none';
+				position = 'fixed';
+				top = '0px';
+				left = '0px';
+				zIndex = '50';
+				width = '100%';
+				height = '100%';
+			}
+			if (self._ua.isWinIE) wrap.style.position = 'absolute';
+			addEvent(wrap,"click",function() { self._close(); });
+			obj.appendChild(wrap);
+			// create loading image, animated image
+			var imag = new Image;
+			imag.onload = function() {
+				var spin = document.createElement('img');
+				spin.id = 'loadingImage';
+				spin.src = imag.src;
+				spin.style.position = 'relative';
+				self._set_cursor(spin);
+				addEvent(spin,'click',function() { self._close(); });
+				wrap.appendChild(spin);
+				imag.onload = function(){};
+			};
+			if (imagePath != '') imag.src = imagePath;
+			return wrap;
+		},
+		_createBoxOn : function(obj,option)
+		{
+			var self = this;
+			if (!obj) return null;
+			// create lightbox object, frame rectangle
+			var box = document.createElement('div');
+			box.id = 'lightbox';
+			with (box.style) {
+				display = 'none';
+				position = 'absolute';
+				zIndex = '60';
+			}
+			obj.appendChild(box);
+			// create image object to display a target image
+			var img = document.createElement('img');
+			img.id = 'lightboxImage';
+			self._set_cursor(img);
+			addEvent(img,'click',function(){ self._close(); });
+			addEvent(img,'mouseover',function(){ self._show_action(); });
+			addEvent(img,'mouseout',function(){ self._hide_action(); });
+			box.appendChild(img);
+			var zoom = document.createElement('img');
+			zoom.id = 'actionImage';
+			with (zoom.style) {
+				display = 'none';
+				position = 'absolute';
+				top = '15px';
+				left = '15px';
+				zIndex = '70';
+			}
+			self._set_cursor(zoom);
+			zoom.src = self._expand;
+			addEvent(zoom,'mouseover',function(){ self._show_action(); });
+			addEvent(zoom,'click', function() { self._zoom(); });
+			box.appendChild(zoom);
+			addEvent(window,'resize',function(){ self._set_size(true); });
+			// close button
+			if (option.closeimg) {
+				var btn = document.createElement('img');
+				btn.id = 'closeButton';
+				with (btn.style) {
+					display = 'inline';
+					position = 'absolute';
+					right = '10px';
+					top = '10px';
+					zIndex = '80';
+				}
+				btn.src = option.closeimg;
+				self._set_cursor(btn);
+				addEvent(btn,'click',function(){ self._close(); });
+				box.appendChild(btn);
+			}
+			// caption text
+			var caption = document.createElement('span');
+			caption.id = 'lightboxCaption';
+			with (caption.style) {
+				display = 'none';
+				position = 'absolute';
+				zIndex = '80';
+			}
+			box.appendChild(caption);
+			// create effect image
+			if (!option.effectpos) option.effectpos = {x:0,y:0};
+			else {
+				if (option.effectpos.x == '') option.effectpos.x = 0;
+				if (option.effectpos.y == '') option.effectpos.y = 0;
+			}
+			var effect = new Image;
+			effect.onload = function() {
+				var effectImg = document.createElement('img');
+				effectImg.id = 'effectImage';
+				effectImg.src = effect.src;
+				if (option.effectclass) effectImg.className = option.effectclass;
+				with (effectImg.style) {
+					position = 'absolute';
+					display = 'none';
+					left = [option.effectpos.x,'px'].join('');;
+					top = [option.effectpos.y,'px'].join('');
+					zIndex = '90';
+				}
+				self._set_cursor(effectImg);
+				addEvent(effectImg,'click',function() { effectImg.style.display = 'none'; });
+				box.appendChild(effectImg);
+			};
+			if (option.effectimg != '') effect.src = option.effectimg;
+			return box;
+		},
+		_set_photo_size : function()
+		{
+			var self = this;
+			if (self._open == -1) return;
+			var imag = self._box.firstChild;
+			var targ = { w:self._page.win.w - 30, h:self._page.win.h - 30 };
+			var orig = { w:self._imgs[self._open].w, h:self._imgs[self._open].h };
+			// shrink image with the same aspect
+			var ratio = 1.0;
+			if ((orig.w >= targ.w || orig.h >= targ.h) && orig.h && orig.w)
+			ratio = ((targ.w / orig.w) < (targ.h / orig.h)) ? targ.w / orig.w : targ.h / orig.h;
+			imag.width  = Math.floor(orig.w * ratio);
+			imag.height = Math.floor(orig.h * ratio);
+			self._expandable = (ratio < 1.0) ? true : false;
+			if (self._ua.isWinIE) self._box.style.display = "block";
+			self._box.style.top  = [self._pos.y + (self._page.win.h - imag.height - 30) / 2,'px'].join('');
+			self._box.style.left = [((self._page.win.w - imag.width - 30) / 2),'px'].join('');
+			self._show_caption(true);
+		},
+		_set_size : function(onResize)
+		{
+			var self = this;
+			if (self._open == -1) return;
+			self._page.update();
+			self._pos.update();
+			var spin = self._wrap.firstChild;
+			if (spin) {
+				var top = (self._page.win.h - spin.height) / 2;
+				if (self._wrap.style.position == 'absolute') top += self._pos.y;
+				spin.style.top  = [top,'px'].join('');
+				spin.style.left = [(self._page.win.w - spin.width - 30) / 2,'px'].join('');
+			}
+			if (self._ua.isWinIE) {
+				self._wrap.style.width  = [self._page.win.w,'px'].join('');
+				self._wrap.style.height = [self._page.h,'px'].join('');
+			}
+			if (onResize) self._set_photo_size();
+		},
+		_show_action : function()
+		{
+			var self = this;
+			if (self._open == -1 || !self._expandable) return;
+			var obj = document.getElementById('actionImage');
+			if (!obj) return;
+			obj.src = (self._expanded) ? self._shrink : self._expand;
+			obj.style.display = 'inline';
+		},
+		_hide_action : function()
+		{
+			var self = this;
+			var obj = document.getElementById('actionImage');
+			if (obj) obj.style.display = 'none';
+		},
+		_zoom : function()
+		{
+			var self = this;
+			if (self._expanded) {
+				self._set_photo_size();
+				self._expanded = false;
+			} else if (self._open > -1) {
+				var imag = self._box.firstChild;
+				self._box.style.top  = [self._pos.y,'px'].join('');
+				self._box.style.left = '0px';
+				imag.width  = self._imgs[self._open].w;
+				imag.height = self._imgs[self._open].h;
+				self._show_caption(false);
+				self._expanded = true;
+			}
+			self._show_action();
+		},
+		_show_caption : function(enable)
+		{
+			var self = this;
+			var caption = document.getElementById('lightboxCaption');
+			if (!caption) return;
+			if (caption.innerHTML.length == 0 || !enable) {
+				caption.style.display = 'none';
+			} else { // now display caption
+				var imag = self._box.firstChild;
+				with (caption.style) {
+					top = [imag.height + 10,'px'].join(''); // 10 is top margin of lightbox
+					left = '0px';
+					width = [imag.width + 20,'px'].join(''); // 20 is total side margin of lightbox
+					height = '1.2em';
+					display = 'block';
+				}
+			}
+		},
+		_show : function(num)
+		{
+			var self = this;
+			var imag = new Image;
+			if (num < 0 || num >= self._imgs.length) return;
+			var loading = document.getElementById('loadingImage');
+			var caption = document.getElementById('lightboxCaption');
+			var effect = document.getElementById('effectImage');
+			self._open = num; // set opened image number
+			self._set_size(false); // calc and set wrapper size
+			self._wrap.style.display = "block";
+			var selects = document.getElementsByTagName("SELECT"); // 셀렉트박스 처리 by 알릭(alik)
+			for (i=0;i<selects.length ;i++ )
+			{
+				if (selects[i].style.visibility != "hidden")
+				{
+					selects[i].style.visibility = "hidden";
+				}
+			} // 여기까지
+			
+			if (loading) loading.style.display = 'inline';
+			imag.onload = function() {
+				try {
+					if (self._imgs[self._open].w == -1) {
+						// store original image width and height
+						self._imgs[self._open].w = imag.width;
+						self._imgs[self._open].h = imag.height;
+					}
+					if (effect) {
+						effect.style.display = (!effect.className || self._imgs[self._open].cls == effect.className)
+						? 'block' : 'none';
+					}
+					if (caption) caption.innerHTML = self._imgs[self._open].title;
+					self._set_photo_size(); // calc and set lightbox size
+					self._hide_action();
+					self._box.style.display = "block";
+					self._box.firstChild.src = imag.src;
+					self._box.firstChild.setAttribute('title',self._imgs[self._open].title);
+					if (loading) loading.style.display = 'none';
+				} catch(e) {}
+			};
+			self._expandable = false;
+			self._expanded = false;
+			imag.src = self._imgs[self._open].src;
+		},
+		_set_cursor : function(obj)
+		{
+			var self = this;
+			if (self._ua.isWinIE && !self._ua.isNewIE) return;
+			obj.style.cursor = 'pointer';
+		},
+		_close : function()
+		{
+			
+			var selects = document.getElementsByTagName("SELECT"); // 셀렉트박스 처리 by 알릭(alik)
+			for (i=0;i<selects.length ;i++ )
+			{
+				if (selects[i].style.visibility == "hidden")
+				{
+					selects[i].style.visibility = "visible";
+				}
+			} // 여기까지
+			
+			var self = this;
+			self._open = -1;
+			self._hide_action();
+			self._wrap.style.display = "none";
+			self._box.style.display  = "none";
+		}
+	};
+	// === main ===
+	addEvent(window,"load",function() {
+		var lightbox = new LightBox({
+			loadingimg:'skin/zb5_style/lightbox_plus/loading.gif',
+			expandimg:'skin/zb5_style/lightbox_plus/expand.gif',
+			shrinkimg:'skin/zb5_style/lightbox_plus/shrink.gif',
+			effectimg:'skin/zb5_style/lightbox_plus/zzoop.gif',
+			effectpos:{x:-40,y:-20},
+			effectclass:'effectable'
+			//closeimg:'skin/zb5_style/lightbox_plus/close.gif'
+		});
+	});
+
+	function applyLightbox(img, cmt) {
+		var image_width = parseInt('600');
+		if (cmt) {
+			image_width = image_width/2;	
+		}
+		var image_height = 0;
+
+		if(img.width > image_width) 
+		{
+			image_height = parseFloat(img.width /img.height)
+			img.width = image_width;
+			img.height = parseInt(image_width / image_height);
+			img.style.width = '';
+			img.style.height = '';
+		}
+		
+		if(img.parentNode.getAttribute('rel') != 'lightbox') {
+			var a = document.createElement('A');
+			a.href = img.src;
+			a.target = '_blank';
+			a.rel ='lightbox';
+			img.parentNode.insertBefore( a, img );
+			a.appendChild( img );			
+		}
+	}
+
+	function copyContent(str) 
+	{ 
+		if (document.selection) 
+		{ 
+			bResult = window.clipboardData.setData("Text",str); 
+			if (bResult) alert('클립보드에 저장되었습니다.'); 
+		} else { 
+			str = encodeforFlash(str); 
+			var flashcopier = 'flashcopier'; 
+			if(!document.getElementById(flashcopier)) { 
+				var divholder = document.createElement('div'); 
+				divholder.id = flashcopier; 
+				document.body.appendChild(divholder); 
+			} 
+			document.getElementById(flashcopier).innerHTML = ''; 
+			var divinfo = '<embed src="skin/zb5_style/images/_clipboard.swf" FlashVars="clipboard='+str+'" width="1" height="1" type="application/x-shockwave-flash"></embed>'; 
+			document.getElementById(flashcopier).innerHTML = divinfo; 
+			alert('클립보드에 저장되었습니다.'); 
+		} 
+	}; 
+
+	function encodeforFlash(str) 
+	{ 
+		var SAFECHARS = "0123456789" + 
+					  "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + 
+					  "abcdefghijklmnopqrstuvwxyz" + 
+					  "-_.!~*'()"; 
+
+		var HEX = "0123456789ABCDEF"; 
+
+		var plaintext = str; 
+		var encoded = ""; 
+		for (var i = 0; i < plaintext.length; i++ ) { 
+			var ch = plaintext.charAt(i); 
+			if (ch == " ") { 
+				encoded += "+"; 
+			} else if (SAFECHARS.indexOf(ch) != -1) { 
+				encoded += ch; 
+			} else { 
+				var charCode = ch.charCodeAt(0); 
+				if (charCode > 255) { 
+					encoded += ch; 
+				} else { 
+					encoded += "%"; 
+					encoded += HEX.charAt((charCode >> 4) & 0xF); 
+					encoded += HEX.charAt(charCode & 0xF); 
+				} 
+			} 
+		} 
+		return encoded; 
+	}; 
+</SCRIPT>
+
+            <SCRIPT language=javascript 
+            src="한국어 글꼴에 ClearType 사용해보기.files/slide_category.js" 
+            type=text/javascript></SCRIPT>
+
+            <TABLE style="TABLE-LAYOUT: fixed" cellSpacing=0 cellPadding=0 
+            width="100%" border=0>
+              <COLGROUP>
+              <COL>
+              <COL width=161></COLGROUP>
+              <TBODY>
+              <TR>
+                <TD vAlign=bottom align=left><A style="DISPLAY: none"><SPAN 
+                  class=setupLogin>쪽지 </SPAN></A><A style="DISPLAY: none"><SPAN 
+                  class=setupLogin>정보수정 </SPAN></A><A 
+                  style="DISPLAY: none"><SPAN class=setupLogin>로그인 </SPAN></A><A 
+                  style="DISPLAY: none"><SPAN class=setupLogin>로그아웃 
+                  </SPAN></A><A style="DISPLAY: none"><SPAN 
+                  class=setupLogin>회원가입 </SPAN></A><A 
+                  style="DISPLAY: none"><SPAN class=setupLogin>설정 </SPAN></A></TD>
+                <TD>
+                  <DIV><SPAN id=category_on 
+                  style="WIDTH: 161px; CURSOR: pointer" 
+                  onclick="slide('category_sub1');"><IMG id=category_on_img 
+                  height=21 alt="" 
+                  src="한국어 글꼴에 ClearType 사용해보기.files/btn_category_down.gif" 
+                  width=161 border=0></SPAN><SPAN id=category_off 
+                  style="DISPLAY: none; WIDTH: 161px; CURSOR: pointer" 
+                  onclick="slide('category_sub1');"><IMG id=category_off_img 
+                  height=21 alt="" 
+                  src="한국어 글꼴에 ClearType 사용해보기.files/btn_category_up.gif" 
+                  width=161 border=0></SPAN></DIV>
+                  <DIV id=category_sub1>
+                  <DIV class=span_sub><A 
+                  onmouseover="this.style.textDecoration='underline'" 
+                  style="FONT: 8pt 돋움" 
+                  onmouseout="this.style.textDecoration='none'" 
+                  href="http://mytheme.net/zboard/zboard.php?id=lec_win">전체 
+                  (775)</A></DIV>
+                  <DIV class=span_sub><A 
+                  onmouseover="this.style.textDecoration='underline'" 
+                  style="FONT: 8pt 돋움" 
+                  onmouseout="this.style.textDecoration='none'" 
+                  href="http://mytheme.net/zboard/zboard.php?category=5&amp;id=lec_win&amp;page=1&amp;page_num=20&amp;sn=off&amp;ss=on&amp;sc=on&amp;keyword=&amp;select_arrange=headnum&amp;desc=asc">멤버 
+                  강좌 (274)</A></B></A></DIV>
+                  <DIV class=span_sub><A 
+                  onmouseover="this.style.textDecoration='underline'" 
+                  style="FONT: 8pt 돋움" 
+                  onmouseout="this.style.textDecoration='none'" 
+                  href="http://mytheme.net/zboard/zboard.php?category=6&amp;id=lec_win&amp;page=1&amp;page_num=20&amp;sn=off&amp;ss=on&amp;sc=on&amp;keyword=&amp;select_arrange=headnum&amp;desc=asc">윈도우 
+                  팁 (460)</A></B></A></DIV>
+                  <DIV class=span_sub><A 
+                  onmouseover="this.style.textDecoration='underline'" 
+                  style="FONT: 8pt 돋움" 
+                  onmouseout="this.style.textDecoration='none'" 
+                  href="http://mytheme.net/zboard/zboard.php?category=7&amp;id=lec_win&amp;page=1&amp;page_num=20&amp;sn=off&amp;ss=on&amp;sc=on&amp;keyword=&amp;select_arrange=headnum&amp;desc=asc">운영진 
+                  강좌 (29)</A></B></A></DIV>
+                  <DIV class=span_sub><A 
+                  onmouseover="this.style.textDecoration='underline'" 
+                  style="FONT: 8pt 돋움" 
+                  onmouseout="this.style.textDecoration='none'" 
+                  href="http://mytheme.net/zboard/zboard.php?category=8&amp;id=lec_win&amp;page=1&amp;page_num=20&amp;sn=off&amp;ss=on&amp;sc=on&amp;keyword=&amp;select_arrange=headnum&amp;desc=asc">osx 
+                  강좌 (12)</A></B></A></DIV></DIV></TD></TR></TBODY></TABLE>
+            <TABLE class=view_tb cellSpacing=0 cellPadding=0 width="100%" 
+            border=0><!-- 제목출력 -->
+              <COLGROUP>
+              <COL>
+              <COL width="40%"></COLGROUP>
+              <TBODY>
+              <TR style="HEIGHT: 27px; BACKGROUND-COLOR: #fbfaf7">
+                <TD class=view_001><IMG style="MARGIN-RIGHT: 3px" alt="" 
+                  src="한국어 글꼴에 ClearType 사용해보기.files/icon_sm_page_white.gif" 
+                  align=absMiddle><B><A title="클릭 = 고유주소 복사하기" 
+                  onclick='copyContent("http://mytheme.net/zboard/view.php?id=lec_win&amp;no=424#424"); return false;' 
+                  href="http://mytheme.net/zboard/view.php?id=lec_win&amp;no=424#424"><B><SPAN 
+                  onmouseover="this.style.textDecoration='underline'" 
+                  onmouseout="this.style.textDecoration='none'">한국어 글꼴에 
+                  ClearType 사용해보기</SPAN></B></A></B></TD>
+                <TD class=view_002 align=right><B>2004-08-01 
+04:22:22</B></TD></TR>
+              <TR style="HEIGHT: 1px; BACKGROUND-COLOR: #e1e1e1">
+                <TD colSpan=2></TD></TR><!-- 작성자 출력 -->
+              <TR>
+                <TD class=view_name><IMG height=16 
+                  src="한국어 글꼴에 ClearType 사용해보기.files/comment_user_img.gif" 
+                  width=16> <IMG src="한국어 글꼴에 ClearType 사용해보기.files/level_4.gif" 
+                  align=absMiddle border=0> <SPAN 
+                  onmousedown="ZB_layerAction('zbLayer1','visible')" 
+                  style="CURSOR: hand">유태웅</SPAN></TD>
+                <TD class=view_home align=right><IMG style="MARGIN-RIGHT: 3px" 
+                  alt=홈페이지 src="한국어 글꼴에 ClearType 사용해보기.files/icon_sm_home.gif" 
+                  align=absMiddle><A class=link_vote 
+                  href="http://cafe.daum.net/dosbox" target=_blank>홈페이지</A> 
+              </TD></TR>
+              <TR style="HEIGHT: 4px">
+                <TD align=middle colSpan=2>
+                  <DIV class=layer_dot1></DIV></TD></TR><!-- 썸네일출력 --><!-- 내용출력 -->
+              <TR>
+                <TD class=view_003 colSpan=2>
+                  <TABLE style="TABLE-LAYOUT: fixed" cellSpacing=0 cellPadding=0 
+                  width="100%" border=0>
+                    <COLGROUP>
+                    <COL width="100%"></COL>
+                    <TBODY>
+                    <TR>
+                      <TD class=view_003 vAlign=top>이 글은 <A 
+                        href="http://www.parkoz.com/zboard/view.php?id=my_tips&amp;page=1&amp;sn1=&amp;divpage=1&amp;sn=off&amp;ss=on&amp;sc=off&amp;keyword=cleartype&amp;select_arrange=headnum&amp;desc=asc&amp;no=1682">[파코즈 
+                        하드웨어]</A>에서도 보실 수 있습니다.<BR><BR><B>한글 글꼴에 ClearType 사용하는 
+                        방법</B><BR>Windows XP에는 화면을 보여줄 때 글자의 모서리를 부드럽게 하여 시각적으로 
+                        아름답<BR>게 보여주는 기능이 있습니다.<BR><BR>사실 Windows 2000 이전에도 기본적인 
+                        안티 엘리어싱은 있었지만 매우 보통일 뿐인 <BR>화질을 보여줬을 뿐이었습니다. ClearType 
+                        효과는 Windows XP에서 액정 디스플레이에 <BR>제약을 두지만 보다 더 부드러운 화질을 기대할 
+                        수 있습니다.<BR>글꼴에 대한 효과의 차이는 아래와 같습니다.<BR><BR>1) 없음<BR><IMG 
+                        src="한국어 글꼴에 ClearType 사용해보기.files/none1x.gif" 
+                        onload=applyLightbox(this) name=zb_target_resize><BR>2) 
+                        표준 (일반 안티엘리어싱)<BR><IMG 
+                        src="한국어 글꼴에 ClearType 사용해보기.files/std1x.gif" 
+                        onload=applyLightbox(this) name=zb_target_resize><BR>3) 
+                        ClearType<BR><IMG 
+                        src="한국어 글꼴에 ClearType 사용해보기.files/ctype1x.gif" 
+                        onload=applyLightbox(this) 
+                        name=zb_target_resize><BR><BR>사람들마다 표준이 좋을 수도 있고 
+                        ClearType이 좋을 수도 있습니다.<BR>표준의 경우 문자열의 모서리 부분이 너무 희미하다는 
+                        느낌이 듭니다. 그에 비해 <BR>ClearType도 희미한 느낌은 있지만 표준에 비해 훨씬 그 
+                        정도가 적고 깔끔한 인상을 줍니다. LCD/PDP 모니터를 제외한 CRT 사용자는 그렇게 느껴지지 
+                        않을 수도 있습니다.<BR><BR>ClearType를 사용할 수 있는 환경에 제약이 있다해도 이 
+                        효과에서 우러나오는 부드러<BR>움의 느낌은 꽤 좋다고 생각합니다.<BR>ClearType가 글꼴을 
+                        부드럽게 해 주는 효과가 큰 까닭을 말하자면, 안티엘리어싱과 <BR>같은 픽셀 단위로 구분하지 않고, 
+                        세 개로 구분하기 때문입니다. 이렇게 되는 이유는 <BR>액정의 화소는 하나의 화소가 임의로 발색하지 
+                        않고 빨강/녹색/파랑의 세 개의 하부 <BR>화소에 의해 한 화소가 구성되기 때문입니다. 게다가 이 
+                        하위 화소는 빨강/녹색/파랑<BR>이 한 라인에 수평 방향으로 줄지어 있습니다.<BR><BR>물론 
+                        각각의 하위 화소에는 빨강/녹색/파랑, 이 세 개의 색이 붙어 있으므로 해상도<BR>를 올리게 되면 
+                        원래 보여주려는 색과 다른 색이 나타나게 됩니다. 그러나 인간의 눈<BR>은 다행히도 밝기가 바뀌는 
+                        것에는 민감하지만 색이 바뀌는 것에는 둔하기 때문에 좁<BR>은 범위이면 색의 바뀜은 느끼지 않을 
+                        것입니다. 이 원리를 이용한 것이 바로 <BR>ClearType의 안티엘리어싱의 원리입니다.<BR>이 
+                        원리는 엘리어싱의 제거 처리 부분을 확대해 보면 알 수 있습니다. 아래가 「/」<BR>의 문자의 
+                        일부분을 열 다섯배로 확대한 화면입니다.<BR>1) 없음<BR><IMG 
+                        src="한국어 글꼴에 ClearType 사용해보기.files/none15x.gif" 
+                        onload=applyLightbox(this) name=zb_target_resize><BR>2) 
+                        표준<BR><IMG 
+                        src="한국어 글꼴에 ClearType 사용해보기.files/std15x.gif" 
+                        onload=applyLightbox(this) name=zb_target_resize><BR>3) 
+                        ClearType<BR><IMG 
+                        src="한국어 글꼴에 ClearType 사용해보기.files/ctype15x.gif" 
+                        onload=applyLightbox(this) 
+                        name=zb_target_resize><BR><BR>★ 한글 글꼴과 
+                        ClearType&nbsp;&nbsp;&nbsp;&nbsp;<BR>Windows XP에서 
+                        ClearType을 사용하려면<BR>디스플레이 등록 정보→화면 배색→효과에 들어간 뒤<BR>화면 
+                        글꼴의 가장자리를 다듬는 데 다음 방법 사용(S) 에 체크하고 아래에 ClearType<BR>을 
+                        선택하세요.<BR>이렇게 하면 글꼴의 부드러움을 만끽할 수 있습니다.<BR><IMG 
+                        src="한국어 글꼴에 ClearType 사용해보기.files/effect.gif" 
+                        onload=applyLightbox(this) 
+                        name=zb_target_resize><BR><BR>그러나 이렇게 해 본 사람이라면 다 알겠지만, 
+                        이렇게 설정하면 영문 글꼴<BR>은 ClearType이 영향을 주지만 한국어 글꼴에는 아무런 영향도 
+                        미치지 않습니다.<BR>즉 여기서 사람들은 '한국어는 ClearType은 무효야...'라고 생각할 
+                        지도 모릅니다. <BR>그러나 사실은 그렇지 않습니다.<BR>시험 삼아 「메모장」등으로 글꼴 크기를 
+                        20p 이상으로 하면 ,ClearType에 의한 부드<BR>러운 효과가 살아나는 것을 알 수 
+                        있습니다.<BR><IMG 
+                        src="한국어 글꼴에 ClearType 사용해보기.files/notepad.gif" 
+                        onload=applyLightbox(this) 
+                        name=zb_target_resize><BR><BR>사실 Microsoft가 준비한 한국어 
+                        글꼴(굴림, 돋움, 바탕, 궁서 등)에는 문자 크기가 <BR>작을 때 문자가 세세한 부분이 무너지지 
+                        않게 하기 위해 미리 Bitmap 처리된 데이터<BR>를 묻어 두는 고정 비트맵 
+                        데이터(Embedded Bitmap Data:EBDT)를 포함하게 됩니다. <BR>Windows는 
+                        미리 EBDT가 준비되어 있는 글꼴 크기에는 그 비트맵 데이터를 그대로 사<BR>용하여 
+                        ClearType의 효과를 맛볼 수 없게 되는 것입니다. 굴림, 돋움, 바탕, 고딕의 <BR>경우 
+                        일부 크기에서 EBDT가 준비되어 있으므로 ClearType을 사용할 수 
+                        없습니다.<BR><BR>ClearType을 어떻게 하면 한국어 글꼴에 사용할 수 
+                        있을까요?<BR>ttfmod 라고 하는 도구를 이용하는 방법이 있습니다. 이것은 TrueType 글꼴 
+                        안에 들<BR>어있는 매개변수 테이블 가운데 하나인 ,gasp(Grid-fitting and scan 
+                        conversion <BR>procedure data) 영역의 정보를 바꾸는 도구입니다. 이 
+                        gasp는 글꼴이 표현될 때, 안<BR>티 엘리어싱을 하는지 하지 않는지 등을 글꼴 크기마다 설정하는 
+                        테이블입니다. 특정 <BR>글꼴 크기에서 안티 엘리어싱이 무효가 되지만 이것을 사용 가능하게 
+                        해줍니.<BR>하지만 실제로 이 방법은 안티 엘리어싱을 사용할 수 있음에도 불구하고 
+                        ClearType만<BR>큼은 예외가 됩니다. 즉 ClearType의 경우 EBDT이 존재할 때 
+                        ,gasp의 설정 여부에 관<BR>계 없이 언제나 안티 엘리어싱을 무효로 하여 비트맵 데이터를 그대로 
+                        보여주게 하는 <BR>것입니다.<BR><BR>이 까닭에 ClearType을 임의의 문자 크기로 
+                        사용하고 싶다면, 앞서 말씀드린 ttfmod<BR>을 이용하지는 못하고, EBDT 자체를 지워버릴 수 
+                        밖에 없습니다. 그러니까 EBDT를 지<BR>워서 ClearType을 사용할 수 있게 해야 
+                        합니다.<BR><BR>★ TTC 파일의 묶음을 풀어보자<BR>실제로 글꼴의 변경을 해 봅시다. 
+                        여기에서는 예를 들어 Gulim.ttc 의 EBDT를 제거하<BR>여 임의의 문자 크기로 언제나 
+                        ClearType이 유효하게 되는 글꼴로 만들어 볼까 합니<BR>다.<BR><BR>먼저 미리 챙겨둬야 
+                        하는 것이 원본이 되는 글꼴입니다. 이것은 기본으<BR>로 WindowsFonts 폴더에 있습니다. 
+                        또는 제어판의 글꼴에 들어가셔도 괜찮습니다. <BR>여기서 직접 글꼴 파일을 편집할 수는 없으므로, 
+                        먼저 이 폴더에서 굴림 글꼴을 임의<BR>의 폴더에 복사하세요. (굴림 &amp; 굴림체 &amp; 
+                        돋움 &amp; 돋움체 TrueType을 예로 듭니다)<BR>FONTS 폴더 안에는 글꼴 파일은 
+                        파일이름이 아니라 '굴림 &amp; 굴림체 &amp; 돋움 &amp; 돋움<BR>체'와 같이 글꼴 
+                        이름으로 보여줍니다. 이것을 밖으로 복사하면「Gulim.ttc」라고 하<BR>는 파일로 바뀌어 보이게 
+                        됩니다.<BR><IMG 
+                        src="한국어 글꼴에 ClearType 사용해보기.files/copy.gif" 
+                        onload=applyLightbox(this) 
+                        name=zb_target_resize><BR><BR>이 파일에서「트루 타입 글꼴」은 조금 다릅니다. 
+                        일반적으로 TrueType 글꼴 파일은<BR>「ttf」라고 하는 확장자를 가지고 있지만, 이 파일의 
+                        확장자는 「ttc」입니다.<BR>이 ttc 확장자는「TrueType Collection font 
+                        file」이라고 불리며, 하나의 파일 안에 <BR>여러 개의 TrueType 글꼴 파일을 넣어둔 
+                        것입니다. 여러 개의 파일이라고는 해도, <BR>ttf와 같은 종류를 하나로 이었다고 하는 단순한 
+                        것이 아니라, 그러한 글꼴 파일 중<BR>에서, 일부 또는 모든 문자를 공유할 수 있다는 특징이 
+                        있습니다.<BR>즉 gulim.ttc 안에는 굴림, 굴림체, 돋움, 돋움체 라는 글꼴 네 개가 함께 
+                        들어 있습<BR>니다.<BR><BR>ttc파일에는 이 파일에 포함되는 여러 글꼴 중 공통의 문자에 
+                        대해서는 문자 데이터<BR>를 공유할 수 있도록 만들어지고 있습니다.<BR>그러나 이렇게 ttc로 
+                        되어 있는 파일의 경우 수정이 매우 어렵습니다. 그렇기 때문에 <BR>ttc 파일로부터 ttf 파일을 
+                        추출해야 합니다. 여기서「breakttc.exe」라고 하는 도구<BR>을 이용하면 
+                        됩니다.<BR><BR>breakttc.exe는 , Microsoft가 공개하고 있는 것 
+                        TrueType SDK에 들어있는 있는 소프<BR>트웨어로, ttc 파일을 분해한 뒤, 여러 개의 
+                        ttf 파일들을 추출해내는 기능을 가지고 <BR>있습니다. 그리고 이것과는 반대로, 여러개의 
+                        ttf파일을 하나로 합쳐서 ttc 파일을 <BR>만드는「makettc.exe」도 있습니다. 이것들은 
+                        다른 SDK 도구와 아울러 ttsdk.zip라고 <BR>하는 압축 파일로 Microsoft사의 
+                        FTP사이트에서 공개되고 있었지만, 지금은 공개하고 <BR>있지 않습니다. 그래서 따로 
+                        BREAKTTC.EXE와 MAKETTC.EXE를 첨부해 둡니다. 이것들은 아까 Gulim.ttc를 
+                        복사한 폴더에 넣으시면 됩니다.<BR><BR>여기까지 다 되었으면, 시작-실행-cmd를 시작하고 
+                        프롬프트 상에서 아래와 같은 명령<BR>어를 입력하세요. <BR><IMG 
+                        src="한국어 글꼴에 ClearType 사용해보기.files/break.gif" 
+                        onload=applyLightbox(this) 
+                        name=zb_target_resize><BR><BR>명령어를 실행하면 ttc 파일에 포함되어 있는 
+                        ttf 파일(FONT00.TTF~FONT03.TTF)라는 <BR>이름으로 
+                        추출됩니다.<BR>FONT00.TTF, FONT01.TTF, FONT02.TTF, FONT03.TTF 
+                        이 네 개의 파일은 직접 Windows 폴더 창에서 하나 하나 실행해보며 해당 글꼴의 이름을 파악할 
+                        수 있습니다.<BR><IMG 
+                        src="한국어 글꼴에 ClearType 사용해보기.files/xinsheng.gif" 
+                        onload=applyLightbox(this) 
+                        name=zb_target_resize><BR><BR>★ EBDT를 제거하자<BR>ttc 안에 있는 
+                        네 개의 파일이 추출되었으면, 다음에 추출된 ttf 파일들 각각에 비트<BR>맵 데이터(EBDT)를 
+                        없애봅시다. <BR>이것을 가능하게 하는 도구는 인터넷에서 찾아보면 여러 가지가 보이지만, 이번은 
+                        <BR>Microsoft가 공개한 sbit32.exe를 사용하겠습니다. 이 도구는 본래 기존의 ttf 
+                        파일 <BR>안의 비트맵 글꼴을 오히려 추가하기 위한 도구입니다. 즉, 이번에 ttf 파일 안의 
+                        비<BR>트맵 글꼴을 제거하려는 목적과는 정반대이지만, 이미 추가된 비트맵 글꼴을 지우는 
+                        <BR>기능도 들어 있습니다. 하지만 앞의 ttsdk.zip는 Microsoft에서 공개하고 있지 
+                        않는 <BR>반면, sbit32.exe는 아직도 Microsoft의 사이트에서 공개하고 있습니다. 
+                        그러나 사용<BR>자의 편의를 돕기 위해 fonttools.exe를 따로 첨부했습니다. 
+                        <BR><BR>SBIT32 -d [원본 글꼴 이름] [테스트 파일] [출력 파일 
+                        이름]　<BR><BR>[원본 글꼴 이름] : EBDT를 제거하려는 비트맵이 이미 포함된 글꼴 파일을 
+                        뜻합니다.<BR>즉, 아까 추출했던 FONT00.ttf~FONT03.ttf를 지정하시면 됩니다. 
+                        [출력 파일 이름]은 <BR>비트맵 데이터가 제거된 결과물의 새로운 파일 이름을 
+                        뜻합니다.<BR>[테스트 파일]은 처리 대상이 되는 비트맵 데이터의 정보를 말해주는 파일 
+                        이름입니<BR>다. 앞서 말했지만 sbit32.exe는 기존의 글꼴 파일에 비트맵 데이터를 추가하는 
+                        것을 <BR>목적으로 하므로, 원래 지정하는 파일 안에, 비트 맵 글꼴의 데이터를 넣어두어야 
+                        합<BR>니다. 그러나 우리가 하려는 것은 기존의 파일로부터 비트맵 글꼴의 데이터를 제거하<BR>는 
+                        게 목적이므로 여기에는 제거하고 싶은 비트맵 정보를 넣어 두면 됩니다. 구체적<BR>으로 말하자면 
+                        테스트 파일 안에 들어있는 형식은 아래와 같아야 합니다.<BR><BR>PPEM 
+                        [크기]<BR>END<BR><BR>[크기]는 비트맵 데이터의 화소 수를 뜻합니다. 이 내용을 텍스트 
+                        파일로서 저장하<BR>여, SBIT32.EXE의 매개변수로 사용할 것이며 [크기]로 지정된 화소 
+                        크기에 맞는 비트<BR>맵 데이터만이 제거됩니다. 하나의 글꼴에는 여러 개의 화소 크기를 가지는 
+                        비트맵 <BR>데이터가 들어있는 것이 보통이므로, 제거하려는 크기에 맞도록 하나하나 이 
+                        명령어<BR>를 실행해 줄 필요가 있습니다.<BR><BR>여기서 굴림, 굴림체, 돋움, 돋움체의 크기 
+                        11~22까지 비트맵 데이터의 화소 크기로 <BR>처리되고 있습니다.<BR>SBIT32.EXE는 
+                        이것들(11, 12, 13, 14, 15, ~, 22)을 한 번에 지우지 못하고, 하나 하<BR>나 
+                        차례대로 지워나갈 수 밖에 없습니다. 즉 따로따로 테스트 파일을 만들어내야 한<BR>다는 
+                        것입니다.<BR>물론 모두 수작업으로 해줘도 상관 없지만 그렇게 하면 너무 귀찮으니까 따로 
+                        배치파<BR>일을 만들어 
+                        보았습니다.<BR>========================================================<BR>@echo 
+                        off<BR>copy %1 %2 &gt;nul<BR>cls<BR>echo PPEM 11 &gt; 
+                        mtemp.txt<BR>echo END &gt;&gt;mtemp.txt<BR>sbit32 -d %2 
+                        mtemp.txt ftemp.ttf<BR>del %2<BR>ren ftemp.ttf 
+                        %2<BR>cls<BR>echo PPEM 12 &gt; mtemp.txt<BR>echo END 
+                        &gt;&gt;mtemp.txt<BR>sbit32 -d %2 mtemp.txt 
+                        ftemp.ttf<BR>del %2<BR>ren ftemp.ttf %2<BR>cls<BR>echo 
+                        PPEM 13 &gt; mtemp.txt<BR>echo END 
+                        &gt;&gt;mtemp.txt<BR>sbit32 -d %2 mtemp.txt 
+                        ftemp.ttf<BR>del %2<BR>ren ftemp.ttf 
+                        %2<BR>.<BR>.<BR>.<BR>cls<BR>echo PPEM 22 &gt; 
+                        mtemp.txt<BR>echo END &gt;&gt;mtemp.txt<BR>sbit32 -d %2 
+                        mtemp.txt ftemp.ttf<BR>del %2<BR>ren ftemp.ttf %2<BR>del 
+                        mtemp.txt<BR>cls<BR>echo 글꼴의 비트맵 데이터가 
+                        제거되었습니다.<BR>echo.<BR>echo 아무키나 누르십시오.<BR>pause 
+                        &gt;nul<BR>======================================================== 
+                        <BR>...은 생략<BR><BR>이 내용을 배치파일로 저장하여 BREAKER.BAT로 저장하시면 
+                        됩니다. (이미 첨부 파일에 <BR>BREAKER.BAT를 넣어 놓았습니다)<BR><BR>아래와 같이 
+                        원본의 글꼴 파일과 새로운 폰트 파일의 이름을 지정하세요. 이것으로 <BR>크기 11에서 크기22까지 
+                        EBDT가 모두 삭제되어 출력 글꼴 파일로 저장됩니다. 예를 <BR>들어, 배치파일 이름 
+                        BREAKER.BAT를 사용하여<BR><BR>BREAKER font00.ttf 
+                        0.ttf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 
+                        굴림　<BR>BREAKER font01.ttf 
+                        1.ttf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 
+                        굴림체<BR>BREAKER font02.ttf 
+                        2.ttf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 돋움<BR>BREAKER 
+                        font03.ttf 3.ttf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 
+                        돋움체<BR><BR>라고 입력해 주면,<BR>font00.ttf에서 EBDT가 제거된 것이 
+                        0.ttf로,<BR>font01.ttf에서 EBDT가 제거된 것이 
+                        1.ttf로,<BR>font02.ttf에서 EBDT가 제거된 것이 
+                        2.ttf로,<BR>font03.ttf에서 EBDT가 제거된 것이 3.ttf로,<BR>저장되게 
+                        됩니다. 물론 다른 글꼴도 마찬가지입니다.<BR><BR>앞서 말씀드렸지만, EBDT을 지우는 
+                        것만으로는, 이후 이 글꼴로 ClearType을 사용할 <BR>수 있지만 일반 안티엘리어싱(표준)을 
+                        사용할 때에는 어떠한 효과도 느낄 수 없습니<BR>다. 이것을 사용하려면 앞서 소개했던 ttfmod를 
+                        사용하는 것이 편합니다. 이 도구도 <BR>TTF 파일이 아닌 다른 파일은 지원하지 않으므로, 이 
+                        단계에서 각 글꼴에 ttfmod를 <BR>사용하게 되면 일반 안티엘리어싱과 ClearType 모두 
+                        글꼴에 적용됩니다.<BR><BR>★ 글꼴 이름을 바꿔보자<BR>다음 단계는 글꼴 파일 속에 들어있는 
+                        글꼴 이름을 바꾸는 것입니다. Windows 상의 <BR>글꼴은 글꼴의 파일 이름이 아니라 글꼴 
+                        자신의 이름으로 구별하게 됩니다. 즉 글꼴 <BR>파일의 이름이 달라도, 글꼴 속에 있는 글꼴 이름이 
+                        똑같다면 같은 글꼴이라고 인식<BR>되어 보여줍니다.<BR><BR>지금까지는 ClearType을 
+                        사용할 수 있도록 수정만 해두었지, 글꼴 이름은 손을 대지 <BR>않아서 아직도 '굴림', 
+                        '굴림체', '돋움', '돋움체'로 남아있을 것입니다.<BR>따라서 글꼴을 구분해 주기 위해 
+                        굴림CT, 굴림체CT, 돋움CT, 돋움체CT로 이름을 바꿔<BR>보도록 하겠습니다. (여기서 CT는 
+                        ClearType의 약자로 해보았습니다)<BR><BR>글꼴의 이름을 바꾸려면 
+                        ttfname.exe이라고 하는 도구를 사용하는 게 편합니다. 이미 <BR>첨부 파일에 포함해 
+                        두었습니다.<BR><BR>사용법) ttfname.exe [이름을 바꿀 글꼴 
+                        이름]<BR><BR>ttfname.exe의 화면 안에서 FontName(글꼴 이름), 
+                        FamilyName(계열 이름), <BR>UniqueIdentifier(고유 증명)은 반드시 바꾸도록 
+                        합시다. PostScriptName 쪽도 똑같<BR>이 바꿔 주는 게 좋습니다.<BR><BR><IMG 
+                        src="한국어 글꼴에 ClearType 사용해보기.files/likethis.gif" 
+                        onload=applyLightbox(this) 
+                        name=zb_target_resize><BR><BR>FontName<BR>FamilyName<BR>UniqueIdentifier<BR>PostScriptName<BR>이 
+                        4개의 값을 원하는 이름으로 바꾸세요.<BR><BR>★ 기존의 4개의 TTF 파일을 TTC로 
+                        합치자<BR>모든 TTF 글꼴의 이름을 바꿨으면, 맨 처음에 TTC에서 TTF를 추출한 것과는 반대로 
+                        <BR>새로운TTC를 만들어야 합니다. 여기서는「makettc.exe」라는 도구를 사용하겠습니다. 
+                        <BR>makettc.exe의 사용법은 아래와 같습니다.<BR><BR>MAKETTC [TTC 파일 
+                        이름] [TTF 파일 이름1] [TTF 파일 이름2] ...<BR><BR>매개변수에서 맨 처음 
+                        [TTC 파일 이름]은 새롭게 만들 TTC 파일 이름을 지정하시면 <BR>됩니다. (예를 들면 
+                        gulimct.ttc)<BR>그 뒤에는 아까 수정했던 0.TTF, 1.TTF, 2.TTF, 
+                        3.TTF를 넣어주시면 됩니다.<BR>즉, MAKETTC gulimct.ttc 0.ttf 1.ttf 
+                        2.ttf 3.ttf<BR>라고 입력해 주시면 됩니다.<BR><BR>★ 글꼴을 등록하자<BR>글꼴 
+                        수정은 여기서 끝났습니다. EBDT가 없는 완성된 글꼴 파일을 Windows의 FONTS 
+                        <BR>폴더에 끌어서 놓으시면 됩니다.<BR>자신이 사용하고 싶어하는 응용 프로그램에도 
+                        ClearType이 가능하도록 수정된 자신만<BR>의 글꼴을 사용할 수 있습니다.<BR>예를 들어, 
+                        Microsoft Internet Explorer의 경우 도구(T)-인터넷 
+                        옵션(O)-일반-글꼴<BR>(N)로 들어가셔서 왼쪽과 오른쪽을 모두 수정된 글꼴로 바꾸시면 됩니다. 
+                        제 생각엔 <BR>굴림CT 보다는 돋움CT가 더 나은 것 같습니다.<BR><BR><IMG 
+                        src="한국어 글꼴에 ClearType 사용해보기.files/interop.gif" 
+                        onload=applyLightbox(this) name=zb_target_resize><BR><!--"<--></TR></TBODY></TABLE></TD></TR><!-- 조회수, 추천수출력 -->
+              <TR>
+                <TD class=view_vote 
+                style="PADDING-RIGHT: 0px; PADDING-LEFT: 10px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px"></TD>
+                <TD class=view_vote align=right>추천 : <B>40</B>, 조회 : 
+                  <B>5,773</B></TD></TR>
+              <TR style="HEIGHT: 4px">
+                <TD align=middle colSpan=2>
+                  <DIV class=layer_dot1></DIV></TD></TR>
+              <TR>
+                <TD 
+                style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px"><A 
+                  name=ccm><SPAN class=com_num id=layer_tg01 
+                  style="CURSOR: pointer" 
+                  onclick="document.getElementById('cmt_ly_tg').style.display='none';document.getElementById('layer_tg01').style.display='none';document.getElementById('layer_tg02').style.display='block';">코멘트(9) 
+                  닫기</SPAN></A><A name=ccm><SPAN class=com_num id=layer_tg02 
+                  style="DISPLAY: none; CURSOR: pointer" 
+                  onclick="document.getElementById('cmt_ly_tg').style.display='block';document.getElementById('layer_tg01').style.display='block';document.getElementById('layer_tg02').style.display='none';">코멘트(9) 
+                  열기</SPAN></A></TD>
+                <TD class=view_vote align=right><A class=link_vote 
+                  href="http://mytheme.net/zboard/vote.php?id=lec_win&amp;page=1&amp;sn1=&amp;divpage=1&amp;sn=off&amp;ss=on&amp;sc=on&amp;select_arrange=headnum&amp;desc=asc&amp;no=424">추천하기</A></TD></TR>
+              <TR>
+                <TD colSpan=2 height=10></TD></TR><!-- 링크, 첨부파일 출력 -->
+              <TR>
+                <TD align=middle colSpan=2>
+                  <DIV id=all_file 
+                  style="BORDER-RIGHT: #f0f0f0 1px solid; BORDER-TOP: #f0f0f0 1px solid; BORDER-LEFT: #f0f0f0 1px solid; WIDTH: 97%; BORDER-BOTTOM: #f0f0f0 1px solid; BACKGROUND-COLOR: #ffffff">
+                  <TABLE class=com_tb cellSpacing=0 cellPadding=0 width="100%"><!--	<tr>
+		<td class="cmtt_004"><img src="skin/zb5_style/images/icon_sm_link.gif" style="margin-right:3px;" align="absMiddle" alt="" />&nbsp;&nbsp;</td>
+	</tr>
+	-->
+                    <TBODY>
+                    <TR>
+                      <TD class=cmtt_004><!--<img src="skin/zb5_style/images/icon_sm_file.gif" style="margin-right:3px;" align="absMiddle" alt="" /><b></b></span></a>&nbsp;<span style="font: 8pt;color:#cdcbcb;">|</span>&nbsp;0 Byte&nbsp;/ 0&nbsp;Download --><IMG 
+                        style="MARGIN-RIGHT: 3px" alt="" 
+                        src="한국어 글꼴에 ClearType 사용해보기.files/icon_sm_file.gif" 
+                        align=absMiddle><B>TTC.rar</B></SPAN></A>&nbsp;<SPAN 
+                        style="FONT-WEIGHT: normal; FONT-SIZE: 8pt; COLOR: #cdcbcb; LINE-HEIGHT: normal; FONT-STYLE: normal; FONT-VARIANT: normal">|</SPAN>&nbsp;362.4 
+                        KB&nbsp;/ 372&nbsp;Download 
+              </TD></TR></TBODY></TABLE></DIV></TD></TR>
+              <TR>
+                <TD colSpan=2 height=10></TD></TR><!--구글 애드센스 -->
+              <TR>
+                <TD align=middle colSpan=2>
+                  <DIV id=all_file 
+                  style="BORDER-RIGHT: #f0f0f0 1px solid; BORDER-TOP: #f0f0f0 1px solid; BORDER-LEFT: #f0f0f0 1px solid; WIDTH: 97%; BORDER-BOTTOM: #f0f0f0 1px solid; BACKGROUND-COLOR: #ffffff">
+                  <TABLE class=com_tb cellSpacing=0 cellPadding=0 
+                    width="100%"><TBODY>
+                    <TR>
+                      <TD align=middle>마이테마쩜넷 많이 느리죠^^; 악성코드도 막아주고, 탭 브라우징과 빠른 
+                        속도를 자랑하는 파이어폭스를 사용해 보세요.<BR>
+                        <SCRIPT type=text/javascript><!--
+google_ad_client = "pub-3679962441317499";
+google_ad_output = "textlink";
+google_ad_format = "ref_text";
+google_cpa_choice = "CAAQgdC1_wEaCNVs6HleTZk5KM244YcB";
+google_ad_channel = "2970523170";
+//--></SCRIPT>
+
+                        <SCRIPT src="한국어 글꼴에 ClearType 사용해보기.files/show_ads.js" 
+                        type=text/javascript>
+</SCRIPT>
+                        ! 또,
+                        <SCRIPT type=text/javascript><!--
+google_ad_client = "pub-3679962441317499";
+google_ad_output = "textlink";
+google_ad_format = "ref_text";
+google_cpa_choice = "CAAQuI3ImwIaCD-FAHsWaY_EKJT5uYsB";
+google_ad_channel = "4791453213";
+//-->
+</SCRIPT>
+
+                        <SCRIPT src="한국어 글꼴에 ClearType 사용해보기.files/show_ads.js" 
+                        type=text/javascript>
+</SCRIPT>
+                         !</TD></TR></TBODY></TABLE></DIV></TD></TR>
+              <TR>
+                <TD colSpan=2 height=10></TD></TR>
+              <TR>
+                <TD align=middle colSpan=2>
+                  <DIV id=cmt_ly_tg 
+                  style="BORDER-RIGHT: #f0f0f0 1px solid; BORDER-TOP: #f0f0f0 1px solid; BORDER-LEFT: #f0f0f0 1px solid; WIDTH: 97%; BORDER-BOTTOM: #f0f0f0 1px solid; BACKGROUND-COLOR: #ffffff">
+                  <TABLE class=com_tb cellSpacing=0 cellPadding=0 
+                    width="100%"><TBODY>
+                    <TR>
+                      <TD vAlign=top>
+                        <DIV id=IAMCOMMENT_2710 
+                        style="DISPLAY: none; WIDTH: 100%" align=right>
+                        <DIV id=comment_2710>
+                        <TABLE 
+                        style="BORDER-RIGHT: #ede8d9 1px solid; TABLE-LAYOUT: fixed; BORDER-TOP: #ede8d9 1px solid; MARGIN-BOTTOM: 3px; BORDER-LEFT: #ede8d9 1px solid; BORDER-BOTTOM: #ede8d9 1px solid; BACKGROUND-COLOR: #fff" 
+                        cellSpacing=2 cellPadding=0 width="100%">
+                          <COLGROUP>
+                          <COL width=20>
+                          <COL width=120>
+                          <COL></COLGROUP>
+                          <TBODY>
+                          <TR 
+                          style="BACKGROUND: url(skin/zb5_style/images/com_pt001.gif) white repeat-x 50% top; HEIGHT: 29px">
+                            <TD style="PADDING-TOP: 3px" vAlign=top 
+                              align=middle><IMG height=16 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/comment_user_img1.gif" 
+                              width=16></TD>
+                            <TD 
+                            style="PADDING-RIGHT: 0px; PADDING-LEFT: 3px; PADDING-BOTTOM: 0px; FONT: 9pt 맑은 고딕; COLOR: #555; PADDING-TOP: 5px" 
+                            vAlign=top><IMG 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/level_9.gif" 
+                              align=absMiddle border=0> <SPAN 
+                              onmousedown="ZB_layerAction('zbLayer2','visible')" 
+                              style="CURSOR: hand"><FONT 
+                              style="FONT: 9pt 맑은 고딕; COLOR: #555">Tuscani</FONT></SPAN></TD>
+                            <TD align=right><SPAN id=replyButton_2710><A 
+                              style="DISPLAY: none"><IMG title=답변달기 
+                              style="MARGIN-TOP: 5px; MARGIN-RIGHT: 2px" 
+                              height=21 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/reply_com_btn.gif" 
+                              width=32></A></SPAN><A style="DISPLAY: none"><IMG 
+                              title=수정하기 
+                              style="MARGIN-TOP: 5px; MARGIN-RIGHT: 2px" 
+                              height=21 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/modify_com_btn.gif" 
+                              width=32></A><SPAN id=deleteButton_2710>&nbsp;<A 
+                              style="DISPLAY: none"> <IMG title=삭제하기 
+                              style="MARGIN-TOP: 5px; MARGIN-RIGHT: 2px" 
+                              height=21 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/delete_com_btn.gif" 
+                              width=32></A></SPAN> </TD></TR>
+                          <TR>
+                            <TD 
+                            style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; FONT: 9pt 맑은 고딕; COLOR: #555; PADDING-TOP: 5px" 
+                            vAlign=top colSpan=3><SPAN 
+                              id=commentContent_2710>어렵네요..;;<BR>그냥 수정한 폰트를 
+                              올려주시면.. 안될까요..?</SPAN>
+                              <DIV 
+                              style="MARGIN-TOP: 6px; FONT: 7pt tahoma; COLOR: #669999" 
+                              align=left></DIV></TD></TR>
+                          <TR>
+                            <TD style="PADDING-RIGHT: 3px" align=right 
+                              colSpan=3><SPAN 
+                              style="FONT: 7pt tahoma; COLOR: #e08600">2004/08/02 
+                              - 13:51:37</SPAN></TD></TR></TBODY></TABLE>
+                        <DIV id=form_2710></DIV>
+                        <DIV id=commentContainer_2710></DIV></DIV></DIV>
+                        <SCRIPT language=JavaScript type=text/javascript>
+	var oCur = document.getElementById("IAMCOMMENT_"+2710);
+	if (0 > 0 && 0 > 0)
+	{
+		var oOrg = document.getElementById("commentContainer_"+0);
+		var oCom = document.getElementById("comment_"+2710);
+		oCom.style.width = (100 - (3*0)).toString() + "%";
+		
+		if (oOrg==null)
+		{
+			oCur.style.display = "";
+		}
+		else
+		{
+			oOrg.innerHTML += oCur.innerHTML;
+			oCur.parentNode.removeChild(oCur);
+			document.getElementById("deleteButton_"+0).style.display = "none";
+		}
+		if(0 == 5) {
+			document.getElementById("replyButton_"+2710).style.display = "none";
+		}
+	}
+	else
+	{
+		oCur.style.display = "";
+	}
+</SCRIPT>
+
+                        <DIV id=IAMCOMMENT_2711 
+                        style="DISPLAY: none; WIDTH: 100%" align=right>
+                        <DIV id=comment_2711>
+                        <TABLE 
+                        style="BORDER-RIGHT: #ede8d9 1px solid; TABLE-LAYOUT: fixed; BORDER-TOP: #ede8d9 1px solid; MARGIN-BOTTOM: 3px; BORDER-LEFT: #ede8d9 1px solid; BORDER-BOTTOM: #ede8d9 1px solid; BACKGROUND-COLOR: #fff" 
+                        cellSpacing=2 cellPadding=0 width="100%">
+                          <COLGROUP>
+                          <COL width=20>
+                          <COL width=120>
+                          <COL></COLGROUP>
+                          <TBODY>
+                          <TR 
+                          style="BACKGROUND: url(skin/zb5_style/images/com_pt001.gif) white repeat-x 50% top; HEIGHT: 29px">
+                            <TD style="PADDING-TOP: 3px" vAlign=top 
+                              align=middle><IMG height=16 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/comment_user_img1.gif" 
+                              width=16></TD>
+                            <TD 
+                            style="PADDING-RIGHT: 0px; PADDING-LEFT: 3px; PADDING-BOTTOM: 0px; FONT: 9pt 맑은 고딕; COLOR: #555; PADDING-TOP: 5px" 
+                            vAlign=top><IMG 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/level_4.gif" 
+                              align=absMiddle border=0> <SPAN 
+                              onmousedown="ZB_layerAction('zbLayer3','visible')" 
+                              style="CURSOR: hand"><FONT 
+                              style="FONT: 9pt 맑은 고딕; COLOR: #555">유태웅</FONT></SPAN></TD>
+                            <TD align=right><SPAN id=replyButton_2711><A 
+                              style="DISPLAY: none"><IMG title=답변달기 
+                              style="MARGIN-TOP: 5px; MARGIN-RIGHT: 2px" 
+                              height=21 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/reply_com_btn.gif" 
+                              width=32></A></SPAN><A style="DISPLAY: none"><IMG 
+                              title=수정하기 
+                              style="MARGIN-TOP: 5px; MARGIN-RIGHT: 2px" 
+                              height=21 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/modify_com_btn.gif" 
+                              width=32></A><SPAN id=deleteButton_2711>&nbsp;<A 
+                              style="DISPLAY: none"> <IMG title=삭제하기 
+                              style="MARGIN-TOP: 5px; MARGIN-RIGHT: 2px" 
+                              height=21 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/delete_com_btn.gif" 
+                              width=32></A></SPAN> </TD></TR>
+                          <TR>
+                            <TD 
+                            style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; FONT: 9pt 맑은 고딕; COLOR: #555; PADDING-TOP: 5px" 
+                            vAlign=top colSpan=3><SPAN 
+                              id=commentContent_2711>실제로는 어렵지 않습니다. 원하시면 연락 
+                              주세요...</SPAN>
+                              <DIV 
+                              style="MARGIN-TOP: 6px; FONT: 7pt tahoma; COLOR: #669999" 
+                              align=left></DIV></TD></TR>
+                          <TR>
+                            <TD style="PADDING-RIGHT: 3px" align=right 
+                              colSpan=3><SPAN 
+                              style="FONT: 7pt tahoma; COLOR: #e08600">2004/08/02 
+                              - 20:01:09</SPAN></TD></TR></TBODY></TABLE>
+                        <DIV id=form_2711></DIV>
+                        <DIV id=commentContainer_2711></DIV></DIV></DIV>
+                        <SCRIPT language=JavaScript type=text/javascript>
+	var oCur = document.getElementById("IAMCOMMENT_"+2711);
+	if (0 > 0 && 0 > 0)
+	{
+		var oOrg = document.getElementById("commentContainer_"+0);
+		var oCom = document.getElementById("comment_"+2711);
+		oCom.style.width = (100 - (3*0)).toString() + "%";
+		
+		if (oOrg==null)
+		{
+			oCur.style.display = "";
+		}
+		else
+		{
+			oOrg.innerHTML += oCur.innerHTML;
+			oCur.parentNode.removeChild(oCur);
+			document.getElementById("deleteButton_"+0).style.display = "none";
+		}
+		if(0 == 5) {
+			document.getElementById("replyButton_"+2711).style.display = "none";
+		}
+	}
+	else
+	{
+		oCur.style.display = "";
+	}
+</SCRIPT>
+
+                        <DIV id=IAMCOMMENT_2712 
+                        style="DISPLAY: none; WIDTH: 100%" align=right>
+                        <DIV id=comment_2712>
+                        <TABLE 
+                        style="BORDER-RIGHT: #ede8d9 1px solid; TABLE-LAYOUT: fixed; BORDER-TOP: #ede8d9 1px solid; MARGIN-BOTTOM: 3px; BORDER-LEFT: #ede8d9 1px solid; BORDER-BOTTOM: #ede8d9 1px solid; BACKGROUND-COLOR: #fff" 
+                        cellSpacing=2 cellPadding=0 width="100%">
+                          <COLGROUP>
+                          <COL width=20>
+                          <COL width=120>
+                          <COL></COLGROUP>
+                          <TBODY>
+                          <TR 
+                          style="BACKGROUND: url(skin/zb5_style/images/com_pt001.gif) white repeat-x 50% top; HEIGHT: 29px">
+                            <TD style="PADDING-TOP: 3px" vAlign=top 
+                              align=middle><IMG height=16 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/comment_user_img1.gif" 
+                              width=16></TD>
+                            <TD 
+                            style="PADDING-RIGHT: 0px; PADDING-LEFT: 3px; PADDING-BOTTOM: 0px; FONT: 9pt 맑은 고딕; COLOR: #555; PADDING-TOP: 5px" 
+                            vAlign=top><IMG 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/level_8.gif" 
+                              align=absMiddle border=0> <SPAN 
+                              onmousedown="ZB_layerAction('zbLayer4','visible')" 
+                              style="CURSOR: hand"><FONT 
+                              style="FONT: 9pt 맑은 고딕; COLOR: #555">HaKu</FONT></SPAN></TD>
+                            <TD align=right><SPAN id=replyButton_2712><A 
+                              style="DISPLAY: none"><IMG title=답변달기 
+                              style="MARGIN-TOP: 5px; MARGIN-RIGHT: 2px" 
+                              height=21 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/reply_com_btn.gif" 
+                              width=32></A></SPAN><A style="DISPLAY: none"><IMG 
+                              title=수정하기 
+                              style="MARGIN-TOP: 5px; MARGIN-RIGHT: 2px" 
+                              height=21 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/modify_com_btn.gif" 
+                              width=32></A><SPAN id=deleteButton_2712>&nbsp;<A 
+                              style="DISPLAY: none"> <IMG title=삭제하기 
+                              style="MARGIN-TOP: 5px; MARGIN-RIGHT: 2px" 
+                              height=21 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/delete_com_btn.gif" 
+                              width=32></A></SPAN> </TD></TR>
+                          <TR>
+                            <TD 
+                            style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; FONT: 9pt 맑은 고딕; COLOR: #555; PADDING-TOP: 5px" 
+                            vAlign=top colSpan=3><SPAN 
+                              id=commentContent_2712>영문윈도우즈xp 사용중이며 현재 따라해봤는데.. 
+                              breaker.bat 으로 ebdt가 없는 폰트 를 생성?하면서 프로세스 어쩌구가 
+                              뜨네요.. 그리고 무시하고 makettc로 합친뒤 폰트폴더에 넣으려니 이미 있는거라며 
+                              안되고.. 참고로 여기강좌에 나온대로 ttfname으로 이름 바뀌었는데도.. 
+                              안되네요.</SPAN>
+                              <DIV 
+                              style="MARGIN-TOP: 6px; FONT: 7pt tahoma; COLOR: #669999" 
+                              align=left></DIV></TD></TR>
+                          <TR>
+                            <TD style="PADDING-RIGHT: 3px" align=right 
+                              colSpan=3><SPAN 
+                              style="FONT: 7pt tahoma; COLOR: #e08600">2004/08/19 
+                              - 03:13:49</SPAN></TD></TR></TBODY></TABLE>
+                        <DIV id=form_2712></DIV>
+                        <DIV id=commentContainer_2712></DIV></DIV></DIV>
+                        <SCRIPT language=JavaScript type=text/javascript>
+	var oCur = document.getElementById("IAMCOMMENT_"+2712);
+	if (0 > 0 && 0 > 0)
+	{
+		var oOrg = document.getElementById("commentContainer_"+0);
+		var oCom = document.getElementById("comment_"+2712);
+		oCom.style.width = (100 - (3*0)).toString() + "%";
+		
+		if (oOrg==null)
+		{
+			oCur.style.display = "";
+		}
+		else
+		{
+			oOrg.innerHTML += oCur.innerHTML;
+			oCur.parentNode.removeChild(oCur);
+			document.getElementById("deleteButton_"+0).style.display = "none";
+		}
+		if(0 == 5) {
+			document.getElementById("replyButton_"+2712).style.display = "none";
+		}
+	}
+	else
+	{
+		oCur.style.display = "";
+	}
+</SCRIPT>
+
+                        <DIV id=IAMCOMMENT_2713 
+                        style="DISPLAY: none; WIDTH: 100%" align=right>
+                        <DIV id=comment_2713>
+                        <TABLE 
+                        style="BORDER-RIGHT: #ede8d9 1px solid; TABLE-LAYOUT: fixed; BORDER-TOP: #ede8d9 1px solid; MARGIN-BOTTOM: 3px; BORDER-LEFT: #ede8d9 1px solid; BORDER-BOTTOM: #ede8d9 1px solid; BACKGROUND-COLOR: #fff" 
+                        cellSpacing=2 cellPadding=0 width="100%">
+                          <COLGROUP>
+                          <COL width=20>
+                          <COL width=120>
+                          <COL></COLGROUP>
+                          <TBODY>
+                          <TR 
+                          style="BACKGROUND: url(skin/zb5_style/images/com_pt001.gif) white repeat-x 50% top; HEIGHT: 29px">
+                            <TD style="PADDING-TOP: 3px" vAlign=top 
+                              align=middle><IMG height=16 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/comment_user_img1.gif" 
+                              width=16></TD>
+                            <TD 
+                            style="PADDING-RIGHT: 0px; PADDING-LEFT: 3px; PADDING-BOTTOM: 0px; FONT: 9pt 맑은 고딕; COLOR: #555; PADDING-TOP: 5px" 
+                            vAlign=top><IMG 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/level_8.gif" 
+                              align=absMiddle border=0> <SPAN 
+                              onmousedown="ZB_layerAction('zbLayer5','visible')" 
+                              style="CURSOR: hand"><FONT 
+                              style="FONT: 9pt 맑은 고딕; COLOR: #555">HaKu</FONT></SPAN></TD>
+                            <TD align=right><SPAN id=replyButton_2713><A 
+                              style="DISPLAY: none"><IMG title=답변달기 
+                              style="MARGIN-TOP: 5px; MARGIN-RIGHT: 2px" 
+                              height=21 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/reply_com_btn.gif" 
+                              width=32></A></SPAN><A style="DISPLAY: none"><IMG 
+                              title=수정하기 
+                              style="MARGIN-TOP: 5px; MARGIN-RIGHT: 2px" 
+                              height=21 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/modify_com_btn.gif" 
+                              width=32></A><SPAN id=deleteButton_2713>&nbsp;<A 
+                              style="DISPLAY: none"> <IMG title=삭제하기 
+                              style="MARGIN-TOP: 5px; MARGIN-RIGHT: 2px" 
+                              height=21 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/delete_com_btn.gif" 
+                              width=32></A></SPAN> </TD></TR>
+                          <TR>
+                            <TD 
+                            style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; FONT: 9pt 맑은 고딕; COLOR: #555; PADDING-TOP: 5px" 
+                            vAlign=top colSpan=3><SPAN 
+                              id=commentContent_2713>폰트 올려주셨으면 합니다 .. ㅠ_ㅠ; 다시 
+                              해보니 안되네요; 제가 뭔가 잘못했다던가 한것 같은데 잘 모르겠으니..</SPAN>
+                              <DIV 
+                              style="MARGIN-TOP: 6px; FONT: 7pt tahoma; COLOR: #669999" 
+                              align=left></DIV></TD></TR>
+                          <TR>
+                            <TD style="PADDING-RIGHT: 3px" align=right 
+                              colSpan=3><SPAN 
+                              style="FONT: 7pt tahoma; COLOR: #e08600">2004/08/19 
+                              - 03:29:50</SPAN></TD></TR></TBODY></TABLE>
+                        <DIV id=form_2713></DIV>
+                        <DIV id=commentContainer_2713></DIV></DIV></DIV>
+                        <SCRIPT language=JavaScript type=text/javascript>
+	var oCur = document.getElementById("IAMCOMMENT_"+2713);
+	if (0 > 0 && 0 > 0)
+	{
+		var oOrg = document.getElementById("commentContainer_"+0);
+		var oCom = document.getElementById("comment_"+2713);
+		oCom.style.width = (100 - (3*0)).toString() + "%";
+		
+		if (oOrg==null)
+		{
+			oCur.style.display = "";
+		}
+		else
+		{
+			oOrg.innerHTML += oCur.innerHTML;
+			oCur.parentNode.removeChild(oCur);
+			document.getElementById("deleteButton_"+0).style.display = "none";
+		}
+		if(0 == 5) {
+			document.getElementById("replyButton_"+2713).style.display = "none";
+		}
+	}
+	else
+	{
+		oCur.style.display = "";
+	}
+</SCRIPT>
+
+                        <DIV id=IAMCOMMENT_2714 
+                        style="DISPLAY: none; WIDTH: 100%" align=right>
+                        <DIV id=comment_2714>
+                        <TABLE 
+                        style="BORDER-RIGHT: #ede8d9 1px solid; TABLE-LAYOUT: fixed; BORDER-TOP: #ede8d9 1px solid; MARGIN-BOTTOM: 3px; BORDER-LEFT: #ede8d9 1px solid; BORDER-BOTTOM: #ede8d9 1px solid; BACKGROUND-COLOR: #fff" 
+                        cellSpacing=2 cellPadding=0 width="100%">
+                          <COLGROUP>
+                          <COL width=20>
+                          <COL width=120>
+                          <COL></COLGROUP>
+                          <TBODY>
+                          <TR 
+                          style="BACKGROUND: url(skin/zb5_style/images/com_pt001.gif) white repeat-x 50% top; HEIGHT: 29px">
+                            <TD style="PADDING-TOP: 3px" vAlign=top 
+                              align=middle><IMG height=16 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/comment_user_img1.gif" 
+                              width=16></TD>
+                            <TD 
+                            style="PADDING-RIGHT: 0px; PADDING-LEFT: 3px; PADDING-BOTTOM: 0px; FONT: 9pt 맑은 고딕; COLOR: #555; PADDING-TOP: 5px" 
+                            vAlign=top><IMG 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/level_9.gif" 
+                              align=absMiddle border=0> <SPAN 
+                              onmousedown="ZB_layerAction('zbLayer6','visible')" 
+                              style="CURSOR: hand"><FONT 
+                              style="FONT: 9pt 맑은 고딕; COLOR: #555">swordsman</FONT></SPAN></TD>
+                            <TD align=right><SPAN id=replyButton_2714><A 
+                              style="DISPLAY: none"><IMG title=답변달기 
+                              style="MARGIN-TOP: 5px; MARGIN-RIGHT: 2px" 
+                              height=21 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/reply_com_btn.gif" 
+                              width=32></A></SPAN><A style="DISPLAY: none"><IMG 
+                              title=수정하기 
+                              style="MARGIN-TOP: 5px; MARGIN-RIGHT: 2px" 
+                              height=21 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/modify_com_btn.gif" 
+                              width=32></A><SPAN id=deleteButton_2714>&nbsp;<A 
+                              style="DISPLAY: none"> <IMG title=삭제하기 
+                              style="MARGIN-TOP: 5px; MARGIN-RIGHT: 2px" 
+                              height=21 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/delete_com_btn.gif" 
+                              width=32></A></SPAN> </TD></TR>
+                          <TR>
+                            <TD 
+                            style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; FONT: 9pt 맑은 고딕; COLOR: #555; PADDING-TOP: 5px" 
+                            vAlign=top colSpan=3><SPAN 
+                              id=commentContent_2714>ttfname.exe에 버그가 있는것 
+                              같습니다.<BR>Font 이름을 바꾸면 18사이즈의 글꼴이 하얗게 깨져서 나옵니다. 다른 
+                              사이즈는 이상 없고요...<BR>리부팅까지 되네요-_-;;;<BR>참고로 영문 윈도우 
+                              sp1 사용자입니다.</SPAN>
+                              <DIV 
+                              style="MARGIN-TOP: 6px; FONT: 7pt tahoma; COLOR: #669999" 
+                              align=left></DIV></TD></TR>
+                          <TR>
+                            <TD style="PADDING-RIGHT: 3px" align=right 
+                              colSpan=3><SPAN 
+                              style="FONT: 7pt tahoma; COLOR: #e08600">2004/08/23 
+                              - 10:44:42</SPAN></TD></TR></TBODY></TABLE>
+                        <DIV id=form_2714></DIV>
+                        <DIV id=commentContainer_2714></DIV></DIV></DIV>
+                        <SCRIPT language=JavaScript type=text/javascript>
+	var oCur = document.getElementById("IAMCOMMENT_"+2714);
+	if (0 > 0 && 0 > 0)
+	{
+		var oOrg = document.getElementById("commentContainer_"+0);
+		var oCom = document.getElementById("comment_"+2714);
+		oCom.style.width = (100 - (3*0)).toString() + "%";
+		
+		if (oOrg==null)
+		{
+			oCur.style.display = "";
+		}
+		else
+		{
+			oOrg.innerHTML += oCur.innerHTML;
+			oCur.parentNode.removeChild(oCur);
+			document.getElementById("deleteButton_"+0).style.display = "none";
+		}
+		if(0 == 5) {
+			document.getElementById("replyButton_"+2714).style.display = "none";
+		}
+	}
+	else
+	{
+		oCur.style.display = "";
+	}
+</SCRIPT>
+
+                        <DIV id=IAMCOMMENT_2715 
+                        style="DISPLAY: none; WIDTH: 100%" align=right>
+                        <DIV id=comment_2715>
+                        <TABLE 
+                        style="BORDER-RIGHT: #ede8d9 1px solid; TABLE-LAYOUT: fixed; BORDER-TOP: #ede8d9 1px solid; MARGIN-BOTTOM: 3px; BORDER-LEFT: #ede8d9 1px solid; BORDER-BOTTOM: #ede8d9 1px solid; BACKGROUND-COLOR: #fff" 
+                        cellSpacing=2 cellPadding=0 width="100%">
+                          <COLGROUP>
+                          <COL width=20>
+                          <COL width=120>
+                          <COL></COLGROUP>
+                          <TBODY>
+                          <TR 
+                          style="BACKGROUND: url(skin/zb5_style/images/com_pt001.gif) white repeat-x 50% top; HEIGHT: 29px">
+                            <TD style="PADDING-TOP: 3px" vAlign=top 
+                              align=middle><IMG height=16 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/comment_user_img1.gif" 
+                              width=16></TD>
+                            <TD 
+                            style="PADDING-RIGHT: 0px; PADDING-LEFT: 3px; PADDING-BOTTOM: 0px; FONT: 9pt 맑은 고딕; COLOR: #555; PADDING-TOP: 5px" 
+                            vAlign=top><IMG 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/level_4.gif" 
+                              align=absMiddle border=0> <SPAN 
+                              onmousedown="ZB_layerAction('zbLayer7','visible')" 
+                              style="CURSOR: hand"><FONT 
+                              style="FONT: 9pt 맑은 고딕; COLOR: #555">유태웅</FONT></SPAN></TD>
+                            <TD align=right><SPAN id=replyButton_2715><A 
+                              style="DISPLAY: none"><IMG title=답변달기 
+                              style="MARGIN-TOP: 5px; MARGIN-RIGHT: 2px" 
+                              height=21 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/reply_com_btn.gif" 
+                              width=32></A></SPAN><A style="DISPLAY: none"><IMG 
+                              title=수정하기 
+                              style="MARGIN-TOP: 5px; MARGIN-RIGHT: 2px" 
+                              height=21 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/modify_com_btn.gif" 
+                              width=32></A><SPAN id=deleteButton_2715>&nbsp;<A 
+                              style="DISPLAY: none"> <IMG title=삭제하기 
+                              style="MARGIN-TOP: 5px; MARGIN-RIGHT: 2px" 
+                              height=21 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/delete_com_btn.gif" 
+                              width=32></A></SPAN> </TD></TR>
+                          <TR>
+                            <TD 
+                            style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; FONT: 9pt 맑은 고딕; COLOR: #555; PADDING-TOP: 5px" 
+                            vAlign=top colSpan=3><SPAN 
+                              id=commentContent_2715>하나포스의 계정 유료화 발표료 인해 메이드 닷 
+                              컴으로 무료 계정을 옮겼습니다.</SPAN>
+                              <DIV 
+                              style="MARGIN-TOP: 6px; FONT: 7pt tahoma; COLOR: #669999" 
+                              align=left></DIV></TD></TR>
+                          <TR>
+                            <TD style="PADDING-RIGHT: 3px" align=right 
+                              colSpan=3><SPAN 
+                              style="FONT: 7pt tahoma; COLOR: #e08600">2004/09/21 
+                              - 19:47:20</SPAN></TD></TR></TBODY></TABLE>
+                        <DIV id=form_2715></DIV>
+                        <DIV id=commentContainer_2715></DIV></DIV></DIV>
+                        <SCRIPT language=JavaScript type=text/javascript>
+	var oCur = document.getElementById("IAMCOMMENT_"+2715);
+	if (0 > 0 && 0 > 0)
+	{
+		var oOrg = document.getElementById("commentContainer_"+0);
+		var oCom = document.getElementById("comment_"+2715);
+		oCom.style.width = (100 - (3*0)).toString() + "%";
+		
+		if (oOrg==null)
+		{
+			oCur.style.display = "";
+		}
+		else
+		{
+			oOrg.innerHTML += oCur.innerHTML;
+			oCur.parentNode.removeChild(oCur);
+			document.getElementById("deleteButton_"+0).style.display = "none";
+		}
+		if(0 == 5) {
+			document.getElementById("replyButton_"+2715).style.display = "none";
+		}
+	}
+	else
+	{
+		oCur.style.display = "";
+	}
+</SCRIPT>
+
+                        <DIV id=IAMCOMMENT_2716 
+                        style="DISPLAY: none; WIDTH: 100%" align=right>
+                        <DIV id=comment_2716>
+                        <TABLE 
+                        style="BORDER-RIGHT: #ede8d9 1px solid; TABLE-LAYOUT: fixed; BORDER-TOP: #ede8d9 1px solid; MARGIN-BOTTOM: 3px; BORDER-LEFT: #ede8d9 1px solid; BORDER-BOTTOM: #ede8d9 1px solid; BACKGROUND-COLOR: #fff" 
+                        cellSpacing=2 cellPadding=0 width="100%">
+                          <COLGROUP>
+                          <COL width=20>
+                          <COL width=120>
+                          <COL></COLGROUP>
+                          <TBODY>
+                          <TR 
+                          style="BACKGROUND: url(skin/zb5_style/images/com_pt001.gif) white repeat-x 50% top; HEIGHT: 29px">
+                            <TD style="PADDING-TOP: 3px" vAlign=top 
+                              align=middle><IMG height=16 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/comment_user_img1.gif" 
+                              width=16></TD>
+                            <TD 
+                            style="PADDING-RIGHT: 0px; PADDING-LEFT: 3px; PADDING-BOTTOM: 0px; FONT: 9pt 맑은 고딕; COLOR: #555; PADDING-TOP: 5px" 
+                            vAlign=top><IMG 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/level_9.gif" 
+                              align=absMiddle border=0> <SPAN 
+                              onmousedown="ZB_layerAction('zbLayer8','visible')" 
+                              style="CURSOR: hand"><FONT 
+                              style="FONT: 9pt 맑은 고딕; COLOR: #555">랼룡랼룡</FONT></SPAN></TD>
+                            <TD align=right><SPAN id=replyButton_2716><A 
+                              style="DISPLAY: none"><IMG title=답변달기 
+                              style="MARGIN-TOP: 5px; MARGIN-RIGHT: 2px" 
+                              height=21 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/reply_com_btn.gif" 
+                              width=32></A></SPAN><A style="DISPLAY: none"><IMG 
+                              title=수정하기 
+                              style="MARGIN-TOP: 5px; MARGIN-RIGHT: 2px" 
+                              height=21 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/modify_com_btn.gif" 
+                              width=32></A><SPAN id=deleteButton_2716>&nbsp;<A 
+                              style="DISPLAY: none"> <IMG title=삭제하기 
+                              style="MARGIN-TOP: 5px; MARGIN-RIGHT: 2px" 
+                              height=21 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/delete_com_btn.gif" 
+                              width=32></A></SPAN> </TD></TR>
+                          <TR>
+                            <TD 
+                            style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; FONT: 9pt 맑은 고딕; COLOR: #555; PADDING-TOP: 5px" 
+                            vAlign=top colSpan=3><SPAN 
+                              id=commentContent_2716>폰트를 등록 해도 폰트 목록에 등록 되지 않아요 
+                              ~ 왜 그렇죠? 모두 다 적용 했는데요 -,.-)&gt;;;</SPAN>
+                              <DIV 
+                              style="MARGIN-TOP: 6px; FONT: 7pt tahoma; COLOR: #669999" 
+                              align=left></DIV></TD></TR>
+                          <TR>
+                            <TD style="PADDING-RIGHT: 3px" align=right 
+                              colSpan=3><SPAN 
+                              style="FONT: 7pt tahoma; COLOR: #e08600">2004/10/04 
+                              - 23:53:24</SPAN></TD></TR></TBODY></TABLE>
+                        <DIV id=form_2716></DIV>
+                        <DIV id=commentContainer_2716></DIV></DIV></DIV>
+                        <SCRIPT language=JavaScript type=text/javascript>
+	var oCur = document.getElementById("IAMCOMMENT_"+2716);
+	if (0 > 0 && 0 > 0)
+	{
+		var oOrg = document.getElementById("commentContainer_"+0);
+		var oCom = document.getElementById("comment_"+2716);
+		oCom.style.width = (100 - (3*0)).toString() + "%";
+		
+		if (oOrg==null)
+		{
+			oCur.style.display = "";
+		}
+		else
+		{
+			oOrg.innerHTML += oCur.innerHTML;
+			oCur.parentNode.removeChild(oCur);
+			document.getElementById("deleteButton_"+0).style.display = "none";
+		}
+		if(0 == 5) {
+			document.getElementById("replyButton_"+2716).style.display = "none";
+		}
+	}
+	else
+	{
+		oCur.style.display = "";
+	}
+</SCRIPT>
+
+                        <DIV id=IAMCOMMENT_2717 
+                        style="DISPLAY: none; WIDTH: 100%" align=right>
+                        <DIV id=comment_2717>
+                        <TABLE 
+                        style="BORDER-RIGHT: #ede8d9 1px solid; TABLE-LAYOUT: fixed; BORDER-TOP: #ede8d9 1px solid; MARGIN-BOTTOM: 3px; BORDER-LEFT: #ede8d9 1px solid; BORDER-BOTTOM: #ede8d9 1px solid; BACKGROUND-COLOR: #fff" 
+                        cellSpacing=2 cellPadding=0 width="100%">
+                          <COLGROUP>
+                          <COL width=20>
+                          <COL width=120>
+                          <COL></COLGROUP>
+                          <TBODY>
+                          <TR 
+                          style="BACKGROUND: url(skin/zb5_style/images/com_pt001.gif) white repeat-x 50% top; HEIGHT: 29px">
+                            <TD style="PADDING-TOP: 3px" vAlign=top 
+                              align=middle><IMG height=16 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/comment_user_img1.gif" 
+                              width=16></TD>
+                            <TD 
+                            style="PADDING-RIGHT: 0px; PADDING-LEFT: 3px; PADDING-BOTTOM: 0px; FONT: 9pt 맑은 고딕; COLOR: #555; PADDING-TOP: 5px" 
+                            vAlign=top><IMG 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/level_4.gif" 
+                              align=absMiddle border=0> <SPAN 
+                              onmousedown="ZB_layerAction('zbLayer9','visible')" 
+                              style="CURSOR: hand"><FONT 
+                              style="FONT: 9pt 맑은 고딕; COLOR: #555">유태웅</FONT></SPAN></TD>
+                            <TD align=right><SPAN id=replyButton_2717><A 
+                              style="DISPLAY: none"><IMG title=답변달기 
+                              style="MARGIN-TOP: 5px; MARGIN-RIGHT: 2px" 
+                              height=21 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/reply_com_btn.gif" 
+                              width=32></A></SPAN><A style="DISPLAY: none"><IMG 
+                              title=수정하기 
+                              style="MARGIN-TOP: 5px; MARGIN-RIGHT: 2px" 
+                              height=21 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/modify_com_btn.gif" 
+                              width=32></A><SPAN id=deleteButton_2717>&nbsp;<A 
+                              style="DISPLAY: none"> <IMG title=삭제하기 
+                              style="MARGIN-TOP: 5px; MARGIN-RIGHT: 2px" 
+                              height=21 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/delete_com_btn.gif" 
+                              width=32></A></SPAN> </TD></TR>
+                          <TR>
+                            <TD 
+                            style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; FONT: 9pt 맑은 고딕; COLOR: #555; PADDING-TOP: 5px" 
+                            vAlign=top colSpan=3><SPAN 
+                              id=commentContent_2717>이름을 바꾸지 않으면 글꼴이 2개 뜰 겁니다... 
+                              위의 프로그램을 이용하여 글골을 바꾸세요. 만약 굴림이나 돋움 글꼴을 원하신다면 제가 
+                              Font 자료실에 올려놓았으니 받아서 사용하시기 바랍니다.</SPAN>
+                              <DIV 
+                              style="MARGIN-TOP: 6px; FONT: 7pt tahoma; COLOR: #669999" 
+                              align=left></DIV></TD></TR>
+                          <TR>
+                            <TD style="PADDING-RIGHT: 3px" align=right 
+                              colSpan=3><SPAN 
+                              style="FONT: 7pt tahoma; COLOR: #e08600">2004/10/13 
+                              - 19:04:54</SPAN></TD></TR></TBODY></TABLE>
+                        <DIV id=form_2717></DIV>
+                        <DIV id=commentContainer_2717></DIV></DIV></DIV>
+                        <SCRIPT language=JavaScript type=text/javascript>
+	var oCur = document.getElementById("IAMCOMMENT_"+2717);
+	if (0 > 0 && 0 > 0)
+	{
+		var oOrg = document.getElementById("commentContainer_"+0);
+		var oCom = document.getElementById("comment_"+2717);
+		oCom.style.width = (100 - (3*0)).toString() + "%";
+		
+		if (oOrg==null)
+		{
+			oCur.style.display = "";
+		}
+		else
+		{
+			oOrg.innerHTML += oCur.innerHTML;
+			oCur.parentNode.removeChild(oCur);
+			document.getElementById("deleteButton_"+0).style.display = "none";
+		}
+		if(0 == 5) {
+			document.getElementById("replyButton_"+2717).style.display = "none";
+		}
+	}
+	else
+	{
+		oCur.style.display = "";
+	}
+</SCRIPT>
+
+                        <DIV id=IAMCOMMENT_4510 
+                        style="DISPLAY: none; WIDTH: 100%" align=right>
+                        <DIV id=comment_4510>
+                        <TABLE 
+                        style="BORDER-RIGHT: #ede8d9 1px solid; TABLE-LAYOUT: fixed; BORDER-TOP: #ede8d9 1px solid; MARGIN-BOTTOM: 3px; BORDER-LEFT: #ede8d9 1px solid; BORDER-BOTTOM: #ede8d9 1px solid; BACKGROUND-COLOR: #fff" 
+                        cellSpacing=2 cellPadding=0 width="100%">
+                          <COLGROUP>
+                          <COL width=20>
+                          <COL width=120>
+                          <COL></COLGROUP>
+                          <TBODY>
+                          <TR 
+                          style="BACKGROUND: url(skin/zb5_style/images/com_pt001.gif) white repeat-x 50% top; HEIGHT: 29px">
+                            <TD style="PADDING-TOP: 3px" vAlign=top 
+                              align=middle><IMG height=16 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/comment_user_img1.gif" 
+                              width=16></TD>
+                            <TD 
+                            style="PADDING-RIGHT: 0px; PADDING-LEFT: 3px; PADDING-BOTTOM: 0px; FONT: 9pt 맑은 고딕; COLOR: #555; PADDING-TOP: 5px" 
+                            vAlign=top><IMG 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/level_9.gif" 
+                              align=absMiddle border=0> <SPAN 
+                              onmousedown="ZB_layerAction('zbLayer10','visible')" 
+                              style="CURSOR: hand"><FONT 
+                              style="FONT: 9pt 맑은 고딕; COLOR: #555">강신오</FONT></SPAN></TD>
+                            <TD align=right><SPAN id=replyButton_4510><A 
+                              style="DISPLAY: none"><IMG title=답변달기 
+                              style="MARGIN-TOP: 5px; MARGIN-RIGHT: 2px" 
+                              height=21 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/reply_com_btn.gif" 
+                              width=32></A></SPAN><A style="DISPLAY: none"><IMG 
+                              title=수정하기 
+                              style="MARGIN-TOP: 5px; MARGIN-RIGHT: 2px" 
+                              height=21 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/modify_com_btn.gif" 
+                              width=32></A><SPAN id=deleteButton_4510>&nbsp;<A 
+                              style="DISPLAY: none"> <IMG title=삭제하기 
+                              style="MARGIN-TOP: 5px; MARGIN-RIGHT: 2px" 
+                              height=21 
+                              src="한국어 글꼴에 ClearType 사용해보기.files/delete_com_btn.gif" 
+                              width=32></A></SPAN> </TD></TR>
+                          <TR>
+                            <TD 
+                            style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; FONT: 9pt 맑은 고딕; COLOR: #555; PADDING-TOP: 5px" 
+                            vAlign=top colSpan=3><SPAN 
+                              id=commentContent_4510>으아 나나 왤케 어렵지... ㅠ,.ㅠ</SPAN>
+                              <DIV 
+                              style="MARGIN-TOP: 6px; FONT: 7pt tahoma; COLOR: #669999" 
+                              align=left></DIV></TD></TR>
+                          <TR>
+                            <TD style="PADDING-RIGHT: 3px" align=right 
+                              colSpan=3><SPAN 
+                              style="FONT: 7pt tahoma; COLOR: #e08600">2007/01/06 
+                              - 15:57:06</SPAN></TD></TR></TBODY></TABLE>
+                        <DIV id=form_4510></DIV>
+                        <DIV id=commentContainer_4510></DIV></DIV></DIV>
+                        <SCRIPT language=JavaScript type=text/javascript>
+	var oCur = document.getElementById("IAMCOMMENT_"+4510);
+	if (0 > 0 && 0 > 0)
+	{
+		var oOrg = document.getElementById("commentContainer_"+0);
+		var oCom = document.getElementById("comment_"+4510);
+		oCom.style.width = (100 - (3*0)).toString() + "%";
+		
+		if (oOrg==null)
+		{
+			oCur.style.display = "";
+		}
+		else
+		{
+			oOrg.innerHTML += oCur.innerHTML;
+			oCur.parentNode.removeChild(oCur);
+			document.getElementById("deleteButton_"+0).style.display = "none";
+		}
+		if(0 == 5) {
+			document.getElementById("replyButton_"+4510).style.display = "none";
+		}
+	}
+	else
+	{
+		oCur.style.display = "";
+	}
+</SCRIPT>
+                      </TD>
+                    <TR></TR></TBODY></TABLE></DIV></TD></TR>
+              <TR>
+                <TD colSpan=2 height=10></TD></TR></TBODY></TABLE>
+            <TABLE style="TABLE-LAYOUT: fixed" cellSpacing=0 cellPadding=0 
+            width="100%" border=0>
+              <TBODY>
+              <TR height=15>
+                <TD colSpan=2></TD></TR>
+              <COLGROUP>
+              <COL width="50%">
+              <COL></COLGROUP>
+              <TBODY>
+              <TR>
+                <TD><A onfocus=blur() 
+                  href="http://mytheme.net/zboard/zboard.php?id=lec_win&amp;page=1&amp;page_num=20&amp;category=&amp;sn=off&amp;ss=on&amp;sc=on&amp;keyword=&amp;prev_no=424&amp;sn1=&amp;divpage=1&amp;select_arrange=headnum&amp;desc=asc"><IMG 
+                  alt=목록보기 
+                  src="한국어 글꼴에 ClearType 사용해보기.files/btn_view_list.gif"></A><ZEROBOARD 
+                  style="MARGIN-LEFT: 5px" alt="답변쓰기" 
+                  src="skin/zb5_style/images/btn_reply.gif" <img 
+                  /></A><ZEROBOARD style="MARGIN-LEFT: 5px" alt="수정하기" 
+                  src="skin/zb5_style/images/modify_btn.gif" <img /></A><A 
+                  style="DISPLAY: none"> <IMG style="MARGIN-LEFT: 5px" alt=삭제하기 
+                  src="한국어 글꼴에 ClearType 사용해보기.files/btn_delete.gif"></A></TD>
+                <TD align=right><ZEROBOARD alt="새글쓰기" 
+                  src="skin/zb5_style/images/btn_post.gif" <img /></A></TD></TR>
+              <TR height=15>
+                <TD colSpan=2></TD></TR></TBODY></TABLE>
+            <CENTER>
+            <TABLE>
+              <TBODY>
+              <TR>
+                <TD>
+                  <SCRIPT type=text/javascript><!--
+google_ad_client = "pub-3679962441317499";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text_image";
+//2007-02-08: mytheme_zboard
+google_ad_channel = "8312212544";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "66000F";
+google_color_text = "000000";
+google_color_url = "D90000";
+//--></SCRIPT>
+
+                  <SCRIPT src="한국어 글꼴에 ClearType 사용해보기.files/show_ads.js" 
+                  type=text/javascript>
+</SCRIPT>
+                </TD>
+              <TR>
+                <TD height=5></TD></TR></TBODY></TABLE></CENTER><!-- 이전글, 다음글 출력 시작 -->
+            <TABLE style="TABLE-LAYOUT: fixed" cellSpacing=0 cellPadding=0 
+            width="100%" border=0>
+              <TBODY>
+              <TR height=5>
+                <TD colSpan=6></TD></TR>
+              <COLGROUP>
+              <COL width=6>
+              <COL width=50>
+              <COL>
+              <COL width=80>
+              <COL width=90>
+              <COL width=50>
+              <COL width=50>
+              <COL width=6></COLGROUP><!--<tr>
+<td><img src="skin/zb5_style/images/bar_head_l.gif" /></td>
+<td class="foot_prev ">이전글</td>
+<td class="foot_prev_bg_subj" title="제목"><span onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'"></span></a>&nbsp;</td>
+<td class="foot_prev_bg" title="작성자"></td>
+<td class="foot_prev_bg" title="등록일"><span title='1970년 01월 01일 09시 00분 00초'>1970-01-01</span></td>
+<td class="foot_prev_bg" title="추천수"></td>
+<td class="foot_prev_bg" title="조회수"></td>
+<td><img src="skin/zb5_style/images/bar_head_r.gif" /></td>
+</tr>
+
+<tr height="5px"><td colspan="6"></td></tr>
+--><!--<tr>
+<td><img src="skin/zb5_style/images/bar_head_l.gif" /></td>
+<td class="foot_prev">다음글</td>
+<td class="foot_prev_bg_subj" title="제목"><span onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'"></span></a>&nbsp;</td>
+<td class="foot_prev_bg" title="작성자"></td>
+<td class="foot_prev_bg" title="등록일"><span title='1970년 01월 01일 09시 00분 00초'>1970-01-01</span></td>
+<td class="foot_prev_bg" title="추천수"></td>
+<td class="foot_prev_bg" title="조회수"></td>
+<td><img src="skin/zb5_style/images/bar_head_r.gif" /></td>
+</tr>
+
+<tr height="5px"><td colspan="6"></td></tr>
+--></TABLE><!-- 이전글, 다음글 출력 끝 -->
+            <SCRIPT>
+print_ZBlayer('zbLayer1', 'http://cafe.daum.net%2Fdosbox', 'eWtod29uZ0B1bml0ZWwuY28ua3I=', '29586', 'lec_win', '%C0%AF%C5%C2%BF%F5', '', '', '', '');
+print_ZBlayer('zbLayer2', '', '', '69981', 'lec_win', 'Tuscani', '', '', '', '');
+print_ZBlayer('zbLayer3', '', '', '29586', 'lec_win', '%C0%AF%C5%C2%BF%F5', '', '', '', '');
+print_ZBlayer('zbLayer4', '', '', '19707', 'lec_win', 'HaKu', '', '', '', '');
+print_ZBlayer('zbLayer5', '', '', '19707', 'lec_win', 'HaKu', '', '', '', '');
+print_ZBlayer('zbLayer6', '', '', '71606', 'lec_win', 'swordsman', '', '', '', '');
+print_ZBlayer('zbLayer7', '', '', '29586', 'lec_win', '%C0%AF%C5%C2%BF%F5', '', '', '', '');
+print_ZBlayer('zbLayer8', '', '', '2189', 'lec_win', '%26%2347036%3B%B7%E6%26%2347036%3B%B7%E6', '', '', '', '');
+print_ZBlayer('zbLayer9', '', '', '29586', 'lec_win', '%C0%AF%C5%C2%BF%F5', '', '', '', '');
+print_ZBlayer('zbLayer10', '', '', '120800', 'lec_win', '%B0%AD%BD%C5%BF%C0', '', '', '', '');
+</SCRIPT>
+
+            <TABLE height=20 cellSpacing=0 cellPadding=0 width="100%" 
+              border=0><TBODY>
+              <TR>
+                <TD 
+                style="FONT-SIZE: 8pt; LINE-HEIGHT: 150%; FONT-FAMILY: tahoma,굴림; LETTER-SPACING: 0px" 
+                align=right><FONT style="FONT-SIZE: 7pt">Copyright 
+                  1999-2007</FONT> <A onfocus=blur() 
+                  href="http://www.zeroboard.com/" target=_blank><FONT 
+                  style="FONT-SIZE: 8pt; FONT-FAMILY: tahoma,굴림">Zeroboard</A> 
+                  </FONT></TD></TR></TBODY></TABLE><!-- 이미지 리사이즈를 위해서 처리하는 부분 -->
+            <SCRIPT>
+				function zb_img_check(){
+					var zb_main_table_width = document.zb_get_table_width.width;
+					var zb_target_resize_num = document.zb_target_resize.length;
+					for(i=0;i<zb_target_resize_num;i++){ 
+						if(document.zb_target_resize[i].width > zb_main_table_width) {
+							document.zb_target_resize[i].width = zb_main_table_width;
+						}
+					}
+				}
+				window.onload = zb_img_check;
+			</SCRIPT>
+
+            <DIV></DIV></TD></TR>
+        <TR>
+          <TD>
+            <DIV 
+align=center></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+<DIV></DIV></TD></TR><TR><TD>
+<DIV align=center>
+<TABLE cellSpacing=0 cellPadding=0 width=940 border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <DIV align=center>
+      <TABLE cellSpacing=0 cellPadding=0 width=940 border=0>
+        <TBODY>
+        <TR>
+          <TD><IMG height=16 src="한국어 글꼴에 ClearType 사용해보기.files/bottom.png" 
+            width=940></TD></TR>
+        <TR>
+          <TD>
+            <DIV align=center>Copyright ⓒ 2002-2007 마이테마쩜넷. All rights reserved. 
+            사이트 운영자: 김영진 ,사이트 서버 및 라인지원: <A href="http://nayana.com/" 
+            target=_blank>(주)인터넷나야나</A><BR>마이테마쩜넷의 모든 자료의 저작권은 해당 저작자에 있으며 상업적인 
+            이용에는 사용하실 수 없고 데스크탑(PC)의 사용에만 허용합니다. <A 
+            href="http://rss.feedwave.com/mytheme"><IMG 
+            style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px" 
+            height=16 alt="rss icon" src="한국어 글꼴에 ClearType 사용해보기.files/rss.jpg" 
+            width=16></A></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TABLE><!--
+ Session Excuted  : 0.0001
+ Connect Checked  : 0.0010
+ Query Excuted  : 0.002
+ PHP Excuted  : 0.053
+ Check Lists : 0.011
+ Skins Excuted  : 0.073
+ Total Excuted Time : 0.128
+--></BODY></HTML>

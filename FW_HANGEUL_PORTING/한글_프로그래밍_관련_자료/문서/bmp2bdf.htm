@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0057)http://hp.vector.co.jp/authors/VA013241/font/bmp2bdf.html -->
+<HTML><HEAD><TITLE>bmp2bdf</TITLE>
+<META http-equiv=content-type content="text/html; charset=euc-jp">
+<META content="MSHTML 6.00.2900.2963" name=GENERATOR></HEAD>
+<BODY text=#000000 vLink=#660099 link=#0000cc bgColor=#efefef>
+<TABLE width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD align=left><A 
+      href="http://hp.vector.co.jp/authors/VA013241/index.html">HOME</A> &gt; 
+      bmp2bdf 
+    <TD align=right>Time-stamp: "Dec 02 2001" </TR></TBODY></TABLE>
+<H1>bmp2bdf</H1>BDFフォントの字形を編集できるソフト。 
+<P>BDFフォントの文字の形を画像エディタで変更することができるツールです。<A 
+href="http://hp.vector.co.jp/authors/VA013241/font/bdf2bmp.html">bdf2bmp</A> 
+と連係して使います。画像エディタ (Adobe Photoshop や The GIMP とか) を使えるっていうのがポイントですね。 
+<P>特徴は..
+<UL>
+  <LI>WindowsでもLinuxでも使える。 
+  <LI>画像エディタが使えれば操作法を新たに覚える必要がない。 
+  <LI>画像エディタならではのいろんな工夫ができる。たとえば、拡大縮小したり、レイヤ機能を使って編集前と後を見比べたり、ほかの文字を一覧したり横にならべて編集できる、など。 
+
+  <LI>大量の文字の編集にも向いてるかも。 
+  <LI>文字コードに関係なく使える。日本語 BDFフォントに対応。 
+  <LI>何もないところで一からフォントを作るには向いてない。 
+  <LI>既にあるBDFフォントに変更を加えるのには向いている。 </LI></UL>といったところです。 
+<HR>
+
+<H2>使いかた</H2>
+<UL>
+  <TABLE cellPadding=0 border=0>
+    <TBODY>
+    <TR>
+      <TD bgColor=black><TT><FONT color=white>$ bmp2bdf inputBDF inputBMP 
+        outputBDF </FONT></TT></TR></TBODY></TABLE></UL>まず 
+bmp2bdfのほうで画像ファイルを作り、その画像ファイルに字形変更を加えてから、この bmp2bdfを使うと、新たな 
+bdfファイルが生成されるという手順です。 
+<OL>具体例 
+  <LI>courR14.bdf というBDFファイルを用意しました。数字のゼロはこんな感じ。 
+  <TABLE border=0>
+    <TBODY>
+    <TR>
+      <TD bgColor=#c8c8d1><SMALL><SMALL><PRE>STARTCHAR zero
+ENCODING 48
+SWIDTH 600 0
+DWIDTH 9 0
+BBX 6 10 1 0
+BITMAP
+78	-####---
+84	#----#--
+84	#----#--
+84	#----#--
+84	#----#--
+84	#----#--
+84	#----#--
+84	#----#--
+84	#----#--
+78	-####---
+ENDCHAR
+</SMALL></SMALL></PRE></TR></TBODY></TABLE>
+  <P></P>
+  <LI>まず bdf2bmpを使って BMPファイルを作ります。 
+  <TABLE cellPadding=0 border=0>
+    <TBODY>
+    <TR>
+      <TD bgColor=black><TT><FONT color=white>$ bdf2bmp courR14.bdf c.bmp 
+        </FONT></TT></TR></TBODY></TABLE>Windowsなら、 
+  <TABLE cellPadding=0 border=0>
+    <TBODY>
+    <TR>
+      <TD bgColor=black><TT><FONT color=white>C:\work&gt; bdf2bmp.exe 
+        courR14.bdf c.bmp </FONT></TT></TR></TBODY></TABLE>
+  <P></P>
+  <LI>そして、c.bmpに画像エディタで変更を加えます。たとえば、数字のゼロに 斜め線を加えてみましょう。 
+  <P><IMG height=499 alt="editing a BMP file" src="bmp2bdf.files/bmp2bdf_01.gif" 
+  width=664> 
+  <P>そして、上書き保存します。 </P>
+  <LI>そうして 
+  <TABLE cellPadding=0 border=0>
+    <TBODY>
+    <TR>
+      <TD bgColor=black><TT><FONT color=white>$ bmp2bdf courR14.bdf c.bmp 
+        c_new.bdf </FONT></TT></TR></TBODY></TABLE>Windowsなら、 
+  <TABLE cellPadding=0 border=0>
+    <TBODY>
+    <TR>
+      <TD bgColor=black><TT><FONT color=white>C:\work&gt; bdf2bmp.exe bmp2bdf 
+        courR14.bdf c.bmp c_new.bdf </FONT></TT></TR></TBODY></TABLE>とすれば、新しい BDFファイル 
+  c_new.bdfのできあがり。 数字のゼロもちゃんと変更されてます。 
+  <TABLE border=0>
+    <TBODY>
+    <TR>
+      <TD bgColor=#c8c8d1><SMALL><SMALL><PRE>STARTCHAR zero
+ENCODING 48
+SWIDTH 600 0
+DWIDTH 9 0
+BBX 10 16 -1 -3
+BITMAP
+0000	----------------
+0000	----------------
+0000	----------------
+1e00	---####---------
+2100	--#----#--------
+2100	--#----#--------
+2300	--#---##--------
+2500	--#--#-#--------
+2900	--#-#--#--------
+3100	--##---#--------
+2100	--#----#--------
+2100	--#----#--------
+1e00	---####---------
+0000	----------------
+0000	----------------
+0000	----------------
+ENDCHAR
+</SMALL></SMALL></PRE></TR></TBODY></TABLE></LI></OL>
+<BLOCKQUOTE><I>courR14.bdf:<BR>Copyright 1984-1989, 1994 Adobe Systems 
+  Incorporated.<BR>Copyright 1988, 1994 Digital Equipment 
+Corporation.<BR></I></BLOCKQUOTE>
+<HR>
+
+<H2>ダウンロード</H2>Linux/Windows共用のソースと、Window用のバイナリがひとつのファイルに入っています。(ソースは ANSI 
+Cで書かれているので、それ以外のプラットフォームでもコンパイルたぶん可)<BR><A 
+href="http://www.vector.co.jp/soft/win95/writing/se178337.html">http://www.vector.co.jp/soft/win95/writing/se178337.html</A> 
+
+<P>更新履歴<BR>version 0.2 (2001/2/07) 4/24ビットカラーのBMP画像に対応、 
+BMP画像のエラーチェックを強化<BR>version 0.1 (2001/1/29) 
+<HR>
+
+<H2>設計思想</H2><PRE class=console>$  bmp2bdf inputBDF inputBMP outputBDF
+</PRE>と入力して使ったときの動作は、「基本的には inputBDF を outputBDF にそのままコピー。ビットマップデータの部分だけは 
+inputBMP を 16進数文字に変換したもので置き換える」というものです。 
+<H3>制限</H3>
+<UL>
+  <LI>bdf2bmp が生成した BMP画像だけ受けつけます (-w 
+  オプションをつけたのもつけてないのも可)<BR>このソフトは内部では、黒とそれ以外の色、という区別をしています。白地や文字仕切りや灰色は同じものとみなします。 
+
+  <LI>Windows形式、4/8/24ビットカラー、非圧縮の BMP画像だけ可 (逆にいうと、1ビットカラー(2色)や32ビットカラーのBMP画像は不可) 
+
+  <LI>次の文字までの距離 (DWIDTH) 
+  を変化させることができない。変更するなら、BDFファイルをテキストエディタで直接書き換える必要がある。ただし、等幅フォントには関係ない (等幅フォントでは 
+  DWIDTH の値は固定で、変更する必要がないから)。 </LI></UL>
+<HR>
+
+<H3>そのほかの BDF字形編集ツール</H3>ここのソフトのほかにも、BDFの文字の形を編集するためのツールはあります。まとめてみました。 
+<DL>
+  <DT>BDF専用エディタ 
+  <DD>Windowsで動くのはありません。Linuxなどで動くのは、<A 
+  href="http://www.mars.sphere.ne.jp/imamura/jisx0213.html">xfed2</A>、<A 
+  href="http://clr.nmsu.edu/~mleisher/xmbdfed.html">XmBDFEd</A> 
+  など。操作法を各ソフトごとに覚える必要があります。日本語に対応していないのもあります。 
+  <DT>bdf2bit, bit2bdf 
+  <DD><A href="http://openlab.ring.gr.jp/efont/">/efont/</A> にある 「東雲(しののめ)12,16」 
+  などのパッケージに付属。テキスト状態で編集できます。テキストエディタで編集するので、操作はとくに覚える必要はないです。大量の文字をeditするのは大変かもしれない。日本語 
+  BDFに対応。 <!--
+LinuxやFreeBSDでしかも Xが入っていないとインストールはできないけど、bdf2bit.in はawkスクリプトなので gawkを入れればWindowsでも使えるでしょう。bit2bdf.in は Perlスクリプトなので、Perlを入れればいい。<br>
+でも Windows のコマンドラインで使うと改行コードが CR+LFになるのがよろしくないです。規格上は BDFファイルの改行は CR+LF でもいいんですけど、実際には UNIXで使われる関係上、LF が標準です。
+--></DD></DL>
+<H3>画像エディタ</H3>
+<DL>
+  <DT><A href="http://www.adobe.co.jp/products/main.html">Adobe Photoshop</A> 
+  (Windows)<BR><A 
+  href="http://www.adobe.co.jp/products/photoshople/demo.html">Photoshop 
+  LE体験版</A> 
+  <DD>有償、市販製品 
+  <DT><A href="http://kuri.sakura.ne.jp/~komugi/gimp/gimporgja/">The</A> <A 
+  href="http://www09.u-page.so-net.ne.jp/yd5/yositaka/">GIMP</A> (Linux, 
+  Windows) 
+  <DD>無償, <A 
+  href="http://www6.freeweb.ne.jp/computer/skeishi/">Windows版</A>はいまのとこ不安定らしい 
+  <DT><A href="http://linux.corel.com/products/pp9/download.htm">Corel 
+  PHOTO-PAINT</A> (Linux) 
+  <DD>Linux版は無償 
+  <DT><A 
+  href="http://www.vector.co.jp/soft/win95/art/se161523.html">PictBear</A> 
+  (Windows) 
+  <DD>無償、レイヤ機能あり </DD></DL>
+<HR>
+itouh<BR></BODY></HTML>

@@ -1,0 +1,144 @@
+첨부 파일명 : ttsdk.zip 
+
+크기 : 624KB (639,150 바이트)
+
+ 
+
+이 파일은 아래에 "TrueType and OpenType font development tools"라는 제목으로 올린
+
+자료의 구버전입니다. 이 구버전에는 신버전에 안들어있는 유용한 TTF 유틸리티들이
+
+몇 개 더 들어있는데요. 
+
+ 
+
+TTC를 TTF로 쪼개주는 프로그램(BREAKTTC.EXE), TTF에서 글꼴 비트맵 이미지를
+
+BDF로 추출하거나 BDF를 TTF에 다시 결합하는 등의 편집을 가능하게 해 주는
+
+프로그램(SBIT32.EXE) 등등... 이런 것들이 있습니다.
+
+ 
+
+일부 유틸리티는 Win32가 아닌 DOS용 실행파일로 되어있습니다.
+
+이런건 명령 프롬프트에서 실행해보면 아무런 메시지가 안나올 수도 있는데
+
+실제로는 잘 동작하는겁니다. 옵션, 파라미터를 사용방법대로 적어주면
+
+프로그램이 제대로 동작하는 것을 볼 수 있습니다. (포함된 문서 참고)
+
+ 
+
+다음은 관련 내용을 담고 있는 링크입니다.
+
+ 
+
+* sbit32 를 이용한 bdf비트맵 폰트 ttf에 넣기
+
+http://www.kr.freebsd.org/ml/hangul-patch/2001/04/msg00025.shtml
+
+ 
+
+* ttf2bdf-k: 트루타입 -> BDF 폰트 변환기
+
+http://www.kr.freebsd.org/~cjh/freetime/x11/ttf2bdf-k/
+
+ 
+
+* 디렉토리 뒤져보면 여러가지 글꼴 관련 작업 도구들이 있습니다.
+
+http://chem.skku.ac.kr/~wkpark/project/
+
+ 
+
+ 
+
+다음은 ttsdk.zip의 파일 목록입니다.
+
+ 
+
+ 
+
+ C 드라이브의 볼륨에는 이름이 없습니다.
+ 볼륨 일련 번호: 2416-0E06
+
+ C:\Documents and Settings\사용자1\바탕 화면\ttsdk 디렉터리
+
+2006-09-15  오전 02:08    <DIR>          ..
+2006-09-15  오전 02:08    <DIR>          ADDTABLE
+2006-09-15  오전 02:08    <DIR>          FLINT
+2006-09-15  오전 02:08    <DIR>          TTFDUMP
+2006-09-15  오전 02:08    <DIR>          SBIT
+2006-09-15  오전 02:08    <DIR>          TTC
+2006-09-15  오전 02:08    <DIR>          .
+1995-11-21  오전 11:24               432 README.TXT
+2006-09-15  오전 02:09                 0 a.txt
+               2개 파일                 432 바이트
+
+ C:\Documents and Settings\사용자1\바탕 화면\ttsdk\ADDTABLE 디렉터리
+
+2006-09-15  오전 02:08    <DIR>          ..
+2006-09-15  오전 02:08    <DIR>          .
+1995-02-17  오후 05:48            15,257 ADDTABLE.EXE
+1995-08-23  오후 12:29               309 ADDTABLE.TXT
+               2개 파일              15,566 바이트
+
+ C:\Documents and Settings\사용자1\바탕 화면\ttsdk\FLINT 디렉터리
+
+2006-09-15  오전 02:08    <DIR>          ..
+2006-09-15  오전 02:08    <DIR>          .
+1995-09-13  오후 12:32               595 FLINT.CNT
+1996-02-07  오전 11:22           186,368 FLINT.EXE
+1996-02-06  오후 02:58           314,773 FLINT.HLP
+1995-09-15  오전 08:22               388 README.TXT
+               4개 파일             502,124 바이트
+
+ C:\Documents and Settings\사용자1\바탕 화면\ttsdk\SBIT 디렉터리
+
+2006-09-15  오전 02:08    <DIR>          ..
+2006-09-15  오전 02:08    <DIR>          .
+1996-04-22  오전 11:58           507,904 SBIT.DOC
+1994-11-04  오후 05:51             4,709 METRIC.DOC
+1995-08-31  오후 11:20            95,744 SBIT32.EXE
+1995-09-27  오전 11:01               331 SBIT32.TXT
+1995-09-27  오전 10:55            75,348 SAMPLE.TXT
+               5개 파일             684,036 바이트
+
+ C:\Documents and Settings\사용자1\바탕 화면\ttsdk\TTC 디렉터리
+
+2006-09-15  오전 02:08    <DIR>          ..
+2006-09-15  오전 02:08    <DIR>          .
+1994-10-19  오후 03:01            11,599 MAKETTC.EXE
+1994-09-28  오전 10:41            10,631 MATCHTTF.EXE
+1994-08-31  오후 05:47            11,019 BREAKTTC.EXE
+               3개 파일              33,249 바이트
+
+ C:\Documents and Settings\사용자1\바탕 화면\ttsdk\TTFDUMP 디렉터리
+
+2006-09-15  오전 02:08    <DIR>          ..
+2006-09-15  오전 02:08    <DIR>          .
+1995-08-31  오전 10:34            48,128 TTFDUMP.DOC
+2006-09-15  오전 02:08    <DIR>          TTFDUMP.DOS
+2006-09-15  오전 02:08    <DIR>          TTFDUMP.NT
+               1개 파일              48,128 바이트
+
+ C:\Documents and Settings\사용자1\바탕 화면\ttsdk\TTFDUMP\TTFDUMP.DOS 디렉터리
+
+2006-09-15  오전 02:08    <DIR>          ..
+2006-09-15  오전 02:08    <DIR>          .
+1995-07-10  오후 01:10           158,044 TTFDUMP.EXE
+               1개 파일             158,044 바이트
+
+ C:\Documents and Settings\사용자1\바탕 화면\ttsdk\TTFDUMP\TTFDUMP.NT 디렉터리
+
+2006-09-15  오전 02:08    <DIR>          ..
+2006-09-15  오전 02:08    <DIR>          .
+1996-04-11  오후 02:59           172,032 TTFDUMP.EXE
+               1개 파일             172,032 바이트
+
+     전체 파일:
+              19개 파일           1,613,611 바이트
+              23개 디렉터리   3,043,319,808 바이트 남음
+
+ 

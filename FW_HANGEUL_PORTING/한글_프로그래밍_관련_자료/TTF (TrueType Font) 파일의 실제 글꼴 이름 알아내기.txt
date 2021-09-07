@@ -1,0 +1,72 @@
+.TTF (TrueType Font) 폰트 파일의 헤더와 테이블을 뒤져서
+실제 글꼴 이름을 출력해주는 소스입니다. 아마도 이러한
+기능을 필요로 하는 분들이 분명 계실 것 같네요.
+(아래 자료와는 반대 기능을 하는 소스입니다)
+
+저도 여기저기 뒤져봤는데 질문만 있고 답은 없더군요.
+언젠가 하이텔에서 받아놨던 TrueType SDK에 이 자료가
+들어있는 것을 발견하여 테스트해보고 올립니다.
+C 소스가 포함되어 있습니다.
+
+이 자료가 필요한 이유에 대해서 약간의 설명을 해드리자면...
+글꼴 파일명과 실제 표시되는 글꼴 이름이 항상 일치하지는 않죠.
+AddFontResource()로 TTF를 시스템에 등록한다 해도 그 글꼴을
+바로 화면에 나타나게 하려면 글꼴 이름을 정확히 알아야 합니다.
+물론 그 글꼴명을 코드에 직접 써 넣으면 되긴 하죠.
+Button1->Font->Name = "글꼴이름"; 이런식으로 말이죠.
+
+근데 문제는 그렇게 할 수 없는 경우에 어떻게 하느냐입니다.
+임의의 TTF 파일을 AddFontResource()로 읽어서 화면에 적용해야 할 때
+그 TTF 파일의 TYPEFACE 이름을 알아야만 그 폰트를 적용할 수 있죠.
+윈도API에 이런 기능을 수행하는 함수가 있는지 또다른 방법이 있는지
+뒤져봤는데 잘 모르겠더군요. 찾아보는데만 시간이 참 많이 소요되었습니다.
+
+C 소스하고 컴파일된 EXE 파일이 포함되어 있는데 16-bit DOS 바이너리입니다.
+16-bit MS-C로 컴파일된 것 같더군요. 소스는 그 상태로 bcc32로 컴파일 가능합니다.
+컴파일시 오류가 몇개 나긴 하는데 별내용 아니라서 무시하셔도 됩니다.
+
+p.s. 추가합니다. TTF 파일에서 글꼴 이름이 UTF-8 형식으로 저장되어 있는 경우가
+있습니다. 이 경우에는 Utf8ToAnsi() 함수를 사용해서 AnsiString으로 변환하시면
+되겠습니다.
+
+글꼴 이름이 UTF-8 형식인지 아닌지 확인하는 방법은 Utf8ToAnsi() 함수로
+변환을 해 보는 것입니다. UTF-8이 아닌 경우에는 빈 문자열("")을 리턴합니다.
+
+3. ttfname.zip  - Example C source code on how to parse the contents
+  of a TrueType font.  Although this particular example will open up 
+  the file and locate the font name contained within the 'name' table,
+  it could be readily adapted to parse any other structure in the 
+  file.  This compressed zip file also contains many useful include 
+  files which have pre-defined structures set up for the internal 
+  tables of a TrueType font file.  This code may be useful for 
+  developers who wish to parse the TrueType data stream returned
+  by the GetFontData() API in Windows 3.1.
+
+
+/* 
+* An example TrueType font file name parsing program.
+*
+* Copyright 1992 Microsoft Corporation.
+*
+* Although this example code is parsing the 'name' table of
+*  a TrueType font, it could be readily adapted to parse any
+* other table.  See the "sfnt.h" include file for the 
+* predefined structures for the other tables in a TrueType 
+* font.  For example, the 'post' table is referenced by the
+* "sfnt_PostScriptInfo" structure.
+*
+* This code could also be useful for applications which
+* wish to directly parse a TrueType font under Windows.
+* Since Windows 3.1 allows an application to gain access
+* to the raw font file via the GetFontData() API, this 
+* example code may be useful.
+*
+*/  
+
+
+ 
+질문 혹시 TTF화일을 EXE화일에 임베드 시켜서 바로 등록하는 방법 모르시나요? 2006/10/20 X 
+ 
+복면S AddFontResource("D:\\MYFONT\\백묵.TTF"); 2006/10/20 X 
+ 
+복면S SendMessage(HWND_BROADCAST, WM_FONTCHANGE, 0, 0); 2006/10/20 X 

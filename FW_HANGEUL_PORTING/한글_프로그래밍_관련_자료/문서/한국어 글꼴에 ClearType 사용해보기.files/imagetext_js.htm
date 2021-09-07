@@ -1,0 +1,8 @@
+function malgunFont(txt,notice) {
+	var str = '';
+
+	if (typeof notice == "undefined") notice = "false";
+	str += '<img src="/v3.0/imagetext.php?text='+encodeURIComponent(txt)+'&font='+malgunFont.font+'&size='+malgunFont.size+'&notice='+notice+'&bgcolor='+malgunFont.bgColor+'&txtcolor='+malgunFont.txtColor+'&notcolor='+malgunFont.notColor+'" alt="'+txt+'" border="0" />';
+
+	document.write(str);
+}
